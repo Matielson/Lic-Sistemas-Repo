@@ -1,5 +1,5 @@
         org 1000h
-msj     DB "la puta que te pario" ;1000h-1003h
+msj     DB "Hola, Buenas Tardes" ;1000h-1003h
 cant    DB 0
         org 2000h
         MOV AL,'a'
