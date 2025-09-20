@@ -1,0 +1,15 @@
+a)- Incorrecto. El programa guarda en AL el valor 4 (que corresponderia a la direccion donde se guarda la longitud del string). 
+Varios puntos a aclarar. El programa no seria reutilizable con otra palabra, ya que tiene un valor fijo establecido en la longitud.
+Ademas, el string a imprimir en pantalla NO tiene 4 caracteres, tiene 5, por lo que acumula otro error.
+
+b)- Incorrecto. El programa guarda en BX el contenido de la variable A. Eso es incorrecto, debido a que no corresponde a la direccion 
+del primer caracter del string a imprimir. Volvemos a lo mismo, no seria reutilizable con otra palabra que no tenga longitud 3.
+
+c)- Correcto.
+
+d)- Incorrecto. No le estaria asignando ningun valor a BX. En cambio, deberia asignar una direccion (por ejemplo: offset A) para poder
+leer por teclado el caracter.
+
+e)- Incorrecto. Ejecuta la instruccion INT6 antes de asignarle a BX la direccion de memoria donde se va a guardar el caracter ingresado
+
+f)- Correcto. 
