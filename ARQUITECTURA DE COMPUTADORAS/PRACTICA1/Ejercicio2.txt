@@ -1,0 +1,19 @@
+a)- Imprime: ARQUITECTURA DE COMPUTADORAS-FACULTAD DE INFORMATICA-UNLP
+b y c)- Imprime UNLP al final, debido a que la INT 7 imprime todos los caracteres que se encuentren entre una direccion y la otra. En BX almacena la direccion del primer caracter a imprimir y en AL la longitud o cantidad
+de caracteres del string.
+
+d)-
+ORG 1000H
+MSJ DB "ARQUITECTURA DE COMPUTADORAS-"
+DB "FACULTAD DE INFORMATICA-"
+DB 55H
+DB 4EH
+DB 4CH
+DB 50H
+FIN DB ?
+ORG 2000H
+MOV BX, OFFSET MSJ
+MOV AL, 29 ; longitud de la primer parte del msj
+INT 7
+INT 0
+END
