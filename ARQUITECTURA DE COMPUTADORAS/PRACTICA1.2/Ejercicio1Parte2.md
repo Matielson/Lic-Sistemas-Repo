@@ -1,3 +1,5 @@
+# EJERCICIO A
+
 | Instrucción | Valor del registro SP | AX | BX |
 |-------------|------------------------|----|----|
 | mov ax,5    | 8000h                  | 5  | -  |
@@ -8,3 +10,6 @@
 | pop bx      | 7FFCh                  | 5  | -  |
 | pop bx      | 7FFEh                  | 5  | -  |
 | pop ax      | 8000h                  | -  | -  |
+
+
+# EJERCICIO B
