@@ -38,5 +38,25 @@ NoEsA: INC letra
        INT 0
 END
 
-# INCISO C
+# INCISO C NO TERMINADOOOOO
 
+       ORG 1000H
+letra  DB ?
+cant   DB 0
+palabra DB ?
+       ORG 2000H
+       MOV letra, 32
+       MOV AL, 1
+bucle: MOV CL, letra
+       SUB palabra, CL
+       MOV BX, offset letra
+       INT 6
+       INC letra
+       INC cant
+       CMP byte ptr[offset letra],'.'+1
+       JNZ bucle
+       MOV AL, cant
+       MOV BX, offset palabra
+       INT 7
+       INT 0
+END
