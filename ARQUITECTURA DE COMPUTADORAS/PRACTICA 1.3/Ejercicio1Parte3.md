@@ -6,4 +6,4 @@
 | c) mov bx,5 <br> push bx <br> call subrutina <br> pop bx |             |        -       |      -      |            |
 | d) mov cx, offset A <br> push cx <br> call subrutina <br> pop cx |             |        -       |             |      -     |
 | e) mov dl,5 <br> call subrutina |      -      |                |      -      |            |
-| f) call subrutina <br> mov A, dx |      -      |                |       -     |            |
+| f) call subrutina <br> mov A, dx |             |                |             |      -     |
