@@ -25,3 +25,8 @@
 | 7  | 2004h     | pop bx            |         8000h          |
 | 8  | 2005h     | hlt               |         8000h          |
 | 9  |  -------  | end               |        -------         |
+
+
+# EJERCICIO C
+
+FALTA HACER
