@@ -99,6 +99,11 @@ fin:  MOV RES, DX
 
 # INCISO D
 
+TERMINAR
+
+# INCISO E 
+
+TERMINAR
 
 
       
