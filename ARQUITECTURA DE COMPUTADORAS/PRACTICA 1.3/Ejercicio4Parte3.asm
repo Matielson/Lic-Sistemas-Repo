@@ -38,15 +38,13 @@ mult:
 ; TRAER VALOR DE A
       MOV BX, AX
       MOV AX, [BX]
-      XOR AH, AH
 ; TRAER VALOR DE B      
       MOV BX, CX
       MOV BX, [BX]
-      XOR BH, BH
 ; MULTIPLICARLOS
-      CMP AX, 0
+      CMP AL, 0
       JZ fin
-loop: CMP BX, 0
+loop: CMP BL, 0
       JZ fin
       ADD DX, AX
       DEC BX
