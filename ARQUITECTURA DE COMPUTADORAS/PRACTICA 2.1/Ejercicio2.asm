@@ -1,0 +1,7 @@
+# INCISO A
+
+PA EQU 30h
+CA EQU 32h
+ORG 2000H
+
+end
