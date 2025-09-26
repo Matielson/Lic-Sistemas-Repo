@@ -7,3 +7,4 @@
 | d) mov cx, offset A <br> push cx <br> call subrutina <br> pop cx |             |        -       |             |      -     |
 | e) mov dl,5 <br> call subrutina |      -      |                |      -      |            |
 | f) call subrutina <br> mov A, dx |             |                |             |      -     |
+ 
