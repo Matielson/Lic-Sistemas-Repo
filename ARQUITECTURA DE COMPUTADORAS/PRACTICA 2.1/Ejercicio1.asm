@@ -1,1 +1,63 @@
+# INCISO A
 
+PB EQU 31h
+CB EQU 33h
+ORG 2000H
+; CONFIGURO MI PUERTO B CON LAS ULTIMAS 4 LUCES DE SALIDA (las que se van a encender)
+MOV AL, 11110000b
+out CB, al
+; ENCIENDO LAS ULTIMAS 4 LUCES CON EL PUERTO B (0Fh ----> 00001111 en binario)
+mov al, 0Fh
+out PB, al
+int 0
+end
+
+; EL PRORGRAMA QUIERE ENCENDER LAS 4 LEDS DE LA DERECHA.
+
+
+# INCISO B
+
+PA EQU 30h
+CA EQU 32h
+ORG 1000h
+msj db “Apagadas”
+ORG 2000H
+; CONFIGURA EL PUERTO A (llaves) EN ENTRADA.
+mov al, 0FFh
+out CA, al
+; LEE EL ESTADO DE LAS LLAVES
+in al, PA
+; VERIFICA SI ESTAN TODAS APAGADAS
+cmp al, 0
+jnz fin
+; SI NO DA 0 (si no estan todas apagadas) IMPRIME EL MSJ (Apagadas)
+mov al, 8
+mov bx , offset msj
+int 7
+fin: int 0
+end
+
+; EL PROGRAMA VERIFICA E INFORMA SI ESTAN TODAS LAS LLAVES APAGADAS.
+
+
+# INCISO C
+
+CB EQU 33h
+PB EQU 31h
+CA EQU 32h
+PA EQU 30h
+ORG 2000h
+; CONFIGURO EL PUERTO A (llaves) en ENTRADA (para recibir el estado de las llaves).
+mov al, 0FFh
+out CA, al
+; CONFIGURO EL PUERTO B (luces) en SALIDA (para mostrar el estado de las luces).
+mov al, 0h
+out CB, al
+; LEO EL ESTADO DE LAS LLAVES.
+in al, PA
+; PONGO EL ESTADO DE LAS LLAVES EN EL PUERTO B.
+out PB, al
+int 0
+end
+
+; EL PROGRAMA VERIFICA LAS LLAVES QUE ESTAN ENCENDIDAS Y EN CONSECUENCIA ENCIENDE LAS LUCES CORRESPONDIETES A CADA LLAVE.
