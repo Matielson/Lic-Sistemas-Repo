@@ -11,7 +11,7 @@ run:      MOV BX, offset msj1
           MOV AL, 30
           INT 7
           RET
-          
+           
 leerPal:  MOV BX, offset pal
 loop:     INT 6
           CMP byte ptr[BX], '.'
