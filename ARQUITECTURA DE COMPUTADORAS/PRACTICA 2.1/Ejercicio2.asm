@@ -43,3 +43,22 @@ FIN:    HLT
 
 
 # INCISO C
+
+        PA EQU 30h
+        PB EQU 31h
+        CA EQU 32h
+        CB EQU 33h
+        
+        ORG 1000h
+msj     DB "Llave Prendida"
+msj2    DB "Llave Apagada"
+        ORG 2000h
+loop:   MOV AL, 11111111b
+        OUT CA, AL
+        MOV AL, 00000000b
+        OUT CB, AL
+        IN AL, PA
+        OUT PB, AL
+        IN AL, PB
+        JMP loop
+        END
