@@ -1,0 +1,15 @@
+ORG 3000h
+flanco_ascendente: 
+ ; MANDO EL STROBE EN 0
+ IN AL, PA
+ AND AL, 0FDh
+ OUT PA, AL
+
+ ; MANDO EL STROBE EN 1 (FLANCO ASCENDENTE)
+ IN AL, PA
+ OR AL, 2
+ OUT PA, AL
+ 
+ ; VUELVO
+ RET
+END 
