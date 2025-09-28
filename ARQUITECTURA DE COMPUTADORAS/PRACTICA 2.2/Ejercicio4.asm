@@ -71,8 +71,9 @@ CB EQU 33h
 
 ORG 1000h
 msj     DB "ORGANIZACION Y ARQUITECTURA DE COMPUTADORAS"
-FIN     DB ? 
+fin2    DB ? 
 msjP    DB "Un mensaje se esta escribiendo en la impresora..."
+fin2    DB ?
 
 ORG 3000h
 ini_pio:
