@@ -39,10 +39,10 @@ END
 
 # INCISO B
 
-- La diferencia con el inciso anterior es que no tengo que decirle manualmente a la impresora que puede imprimir
-un caracter, ya que el HandShake se encarga de eso.
+; - La diferencia con el inciso anterior es que no tengo que decirle manualmente a la impresora que puede imprimir
+; un caracter, ya que el HandShake se encarga de eso.
 
-- La principal ventaja es que yo lo unico que tengo que hacer es configurar el HS para la impresion, y mandarle el dato que quiero imprimir. 
-En cambio, si la estuviera manejando a traves del PIO, tendria que ademas de poner el dato que quiero imprimir en el PIO debo decirle a la impresora "ahora podes imprimir" (haciendo el flanco ascendente con el strobe).
+; - La principal ventaja es que yo lo unico que tengo que hacer es configurar el HS para la impresion, y mandarle el dato que quiero imprimir. 
+; En cambio, si la estuviera manejando a traves del PIO, tendria que ademas de poner el dato que quiero imprimir en el PIO debo decirle a la impresora "ahora podes imprimir" (haciendo el flanco ascendente con el strobe).
 
-- No, ya que el HS unicamente maneja la impresora. Las LUCES y las LEDS son manejadas unicamente por el PIO.
+; - No, ya que el HS unicamente maneja la impresora. Las LUCES y las LEDS son manejadas unicamente por el PIO.
