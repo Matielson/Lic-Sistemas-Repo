@@ -21,8 +21,8 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 
 ### 2° semestre
 
-| Código | Materia                       | Estado  |
-|--------|-------------------------------|---------|
-| SI107  | Taller de Programación        | ⬜       |
-| SI105  | Arquitectura de Computadoras  | ⬜       |
-| SI102  | Matemática 2                  | ⬜       |
+| Código | Materia                                                | Estado  |
+|--------|--------------------------------------------------------|---------|
+| SI107  | Taller de Programación                                 | ⬜       |
+| SI105  | Arquitectura de Computadoras                           | ⬜       |
+| SI102  | Matemática 2                                           | ⬜       |
