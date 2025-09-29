@@ -43,4 +43,50 @@ END
 
 # INCISO B
 
+CONT EQU 10H
+COMP EQU 11H
+EOI EQU 20H
+IMR EQU 21H
+INT0 EQU 24H
+INT1 EQU 25H
+INT2 EQU 26H
+PA EQU 30H
+PB EQU 31H
+CA EQU 32H
+CB EQU 33H
+DATO EQU 40H
+ESTADO EQU 41H
+IDF10 EQU 1
+IDTIMER EQU 2
+IDHAND EQU 3
 
+ORG 1000h
+  msj DB "Vamos las interrupciones!"
+  fin DB ?
+  
+ORG 3000h
+  imprimir_msj: MOV BX, offset msj  
+  MOV AL, offset fin - offset msj 
+  INT 7
+  INC DX
+  MOV AL, 20h
+  OUT EOI, AL
+  IRET
+  
+ORG 2000h
+  MOV AX, imprimir_msj
+  MOV BX, IDF10 * 4
+  MOV [BX], AX
+  CLI
+  MOV AL, 11111100b
+  OUT IMR, AL
+  MOV AL, IDF10
+  OUT INT0, AL
+  MOV AL, IDTIMER
+  OUT INT1, AL
+  STI
+loop: CMP DX, 5
+  JZ fin2
+  JMP loop
+fin2:  HLT
+END
