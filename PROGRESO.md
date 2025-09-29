@@ -15,8 +15,8 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 
 | Código | Materia                                               | Estado  |
 |--------|--------------------------------------------------------|---------|
-| SI106  | Conceptos de Algoritmos, Datos y Programas             | ✅ |
-| SI104  | Organización de Computadoras                           | ✅ FINAL|
+| SI106  | Conceptos de Algoritmos, Datos y Programas             | ✅ FINAL |
+| SI104  | Organización de Computadoras                           | ✅ |
 | SI101  | Matemática 1                                           | ✅      |
 
 ### 2° semestre
