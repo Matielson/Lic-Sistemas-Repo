@@ -114,7 +114,7 @@ imprimir_caracter:
  OUT PB, AL
  call flanco_ascendente
  INC BX
- CMP BX, offset fin
+ CMP BX, offset fin2
  JNZ imprimir_caracter
  RET
 
