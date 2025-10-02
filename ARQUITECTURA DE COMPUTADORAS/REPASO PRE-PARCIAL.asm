@@ -24,7 +24,6 @@ IDHAND EQU 3
 
 org 1000h
   vector DW 50,15,25,12,3,5,4,3,1
-  asd DB ?
 org 3000h
 
   ES_PAR: AND AX, 1
