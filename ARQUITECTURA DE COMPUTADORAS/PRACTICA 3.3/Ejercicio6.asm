@@ -75,3 +75,77 @@ loop2: call poll
 asd: JMP asd
 fin2: HLT
 END
+
+
+
+
+
+3. Escriba un programa para VonSim que lea caracteres por teclado y los envíe a medida que se van ingresando a la impresora a través del Handshake (por consulta de estado, esperando a que la impresora esté libre). 
+El programa debe terminar cuando se presiona la tecla F10. Antes de finalizar, si se imprimieron más de 100 caracteres, debe informarlo en pantalla.
+
+
+CONT EQU 10H
+COMP EQU 11H
+EOI EQU 20H
+IMR EQU 21H
+INT0 EQU 24H
+INT1 EQU 25H
+INT2 EQU 26H
+PA EQU 30H
+PB EQU 31H
+CA EQU 32H
+CB EQU 33H
+DATO EQU 40H
+ESTADO EQU 41H
+IDF10 EQU 1
+IDTIMER EQU 2
+IDHAND EQU 3
+
+ORG 4
+  RUT DW PARAR
+
+ORG 1000h
+  mensaje DB "Se imprimieron mas de 10 caracteres."
+  char DB ?
+  fin DB ?
+  
+ORG 3000h
+  IMPRIMIR: MOV AL, BYTE PTR [BX]
+  OUT DATO, AL
+  INC DL
+  INC BX
+  RET
+
+
+
+  PARAR: MOV AL, 11111111b
+  OUT IMR, AL
+  CMP DL, 10
+  JS seguir
+  MOV BX, offset mensaje
+  MOV AL, offset char - offset mensaje
+  INT 7
+  seguir: INT 0
+  MOV AL, 20h
+  OUT EOI, AL
+  IRET
+  
+ORG 2000h
+  MOV DL, 0
+  CLI
+  MOV AL, 01111111b
+  OUT ESTADO, AL
+  MOV AL, 11111110b
+  OUT IMR, AL
+  MOV AL, IDF10
+  OUT INT0, AL
+  STI
+  MOV BX, OFFSET CHAR
+  ESPERAR: IN AL, ESTADO
+  AND AL, 1
+  JNZ ESPERAR
+  INT 6
+  CALL IMPRIMIR
+  JMP ESPERAR
+  HLT
+END
