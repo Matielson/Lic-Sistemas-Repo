@@ -5,6 +5,16 @@ public class Autor {
     private String biografia;
     private String origen;
 
+    public Autor() {
+        
+    }
+    
+    public Autor(String nombre, String biografia,String origen) {
+        this.nombre = nombre;
+        this.biografia = biografia;
+        this.origen = origen;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -31,6 +41,6 @@ public class Autor {
     
     @Override
     public String toString() {
-        return("Nombre: " + nombre + "Biografia: " + biografia + "Origen: " + origen);
+        return("Nombre: " + nombre + " Biografia: " + biografia + " Origen: " + origen);
     }
 }
