@@ -6,10 +6,10 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 ## PRIMER AÑO
 
 | Semestre              | Código | Materia                                               | Estado  ||
-|-----------------------|--------|--------------------------------------------------------|---------|------|
-| Ingreso (6 semanas)   | CNE    | Expresión de Problemas y Algoritmos                   | ✅ |7|
-|                       | CNC    | Conceptos de Organización de Computadoras             | ✅ |6|
-|                       | CNM    | Matemática 0                                          | ✅ |7|
+|-----------------------|--------|--------------------------------------------------------|--------|------|
+| Ingreso (6 semanas)   | CNE    | Expresión de Problemas y Algoritmos                   | ✅ |   7  |
+|                       | CNC    | Conceptos de Organización de Computadoras             | ✅ |   6  |
+|                       | CNM    | Matemática 0                                          | ✅ |   7  |
 
 ### 1° semestre
 
