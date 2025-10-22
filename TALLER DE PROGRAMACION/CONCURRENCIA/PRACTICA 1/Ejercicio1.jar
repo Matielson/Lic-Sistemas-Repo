@@ -1,1 +1,49 @@
+programa ejemplo
 
+procesos
+  proceso tomarFloresEsquina (ES numCa: numero; ES cantFlores: numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      cantFlores:= cantFlores + 1
+      numCa:= numCa + 1
+  fin
+  
+  proceso depositarTotalFlores (E cantFlores: numero)
+  comenzar
+    repetir cantFlores
+      depositarFlor
+  fin
+  
+  proceso recorrerAvenidaUno(ES numCa: numero)
+  variables
+    cantFlores: numero
+  comenzar
+    cantFlores:= 0
+    Pos(1, numCa)
+    repetir 99
+      tomarFloresEsquina(numCa, cantFlores)
+      mover
+    depositarTotalFlores(cantFlores)
+  fin
+  
+areas
+  ciudad: AreaC (1,1,100,100)
+  
+robots
+
+  robot robot1
+  variables
+    numCa: numero
+  comenzar
+    numCa:= 1
+    recorrerAvenidaUno(numCa)
+  fin
+  
+  
+variables
+  r1: robot1
+comenzar
+  AsignarArea(r1, ciudad)
+  Iniciar(r1, 1,1)
+fin
