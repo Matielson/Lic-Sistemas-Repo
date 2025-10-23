@@ -1,4 +1,6 @@
-programa ejemplo
+# INCISO A
+
+programa Ejercicio1
 
 procesos
   proceso tomarFloresEsquina (ES numCa: numero; ES cantFlores: numero)
