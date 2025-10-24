@@ -1,4 +1,4 @@
-programa ejemplo
+programa ejercicio3
 procesos
   proceso hacerEscalon(ES medidaEscalon: numero; ES cantEscalones: numero)
   variables
