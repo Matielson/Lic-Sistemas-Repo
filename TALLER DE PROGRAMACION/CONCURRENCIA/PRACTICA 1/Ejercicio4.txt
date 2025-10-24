@@ -1,4 +1,4 @@
-programa ejemplo
+programa ejercicio4
 procesos
   proceso limpiarArea(E desde: numero; E hasta: numero)
   variables
