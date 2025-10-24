@@ -1,4 +1,4 @@
-programa ejemplo
+programa ejercicio2
 
 procesos
   proceso recorrerLado (E aux: numero; ES cantPapeles: numero)
