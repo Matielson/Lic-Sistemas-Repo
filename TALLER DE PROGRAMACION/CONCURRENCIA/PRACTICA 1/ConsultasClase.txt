@@ -1,0 +1,3 @@
+- Ejercicio5: Es necesario hacer varios tipos de robot para poder hacer el problema? Si yo solamente tengo 2 procesos que debo usar, pq tengo que hacer 4 robots si o si 
+
+- ?
