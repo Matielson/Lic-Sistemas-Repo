@@ -58,3 +58,70 @@ comenzar
   Iniciar(r1, 1,1)
   Iniciar(r2, 2,11)
 fin
+
+
+# EJERCICIO 1.b
+
+programa ejemplo
+procesos
+  proceso recorrerAvenidaYJuntar(E desde: numero; E hasta:numero; ES cantFlores: numero)
+  variables
+    cantEsq: numero
+  comenzar
+    cantEsq:= (hasta - desde + 1)
+    repetir cantEsq
+      mientras (HayFlorEnLaEsquina)
+        tomarFlor
+        cantFlores:= cantFlores + 1
+      mover
+  fin
+  
+areas
+  ciudad: AreaC (1,1,100,100)
+  
+  
+robots
+
+  robot juntador1
+  variables
+    cantFloresTotal: numero
+  comenzar
+    cantFloresTotal:= 0
+    recorrerAvenidaYJuntar(1,10,cantFloresTotal)
+    EnviarMensaje(cantFloresTotal, r3)
+  fin
+  
+  robot juntador2
+  variables
+    cantFloresTotal: numero
+  comenzar
+    cantFloresTotal:= 0
+    recorrerAvenidaYJuntar(11,20,cantFloresTotal)
+    EnviarMensaje(cantFloresTotal, r3)
+  fin
+  
+  robot fiscalizador
+  variables
+    cantRobot1: numero
+    cantRobot2: numero
+  comenzar
+    RecibirMensaje(cantRobot1, r1)
+    RecibirMensaje(cantRobot2, r2)
+    si (cantRobot1 > cantRobot2)
+      Informar(cantRobot1-cantRobot2)
+    si (cantRobot2 > cantRobot1)
+      Informar(cantRobot2-cantRobot1)
+  fin
+  
+variables
+  r1: juntador1
+  r2: juntador2
+  r3: fiscalizador
+comenzar
+  AsignarArea(r1, ciudad)
+  AsignarArea(r2, ciudad)
+  AsignarArea(r3, ciudad)
+  Iniciar(r1, 1,1)
+  Iniciar(r2, 2,11)
+  Iniciar(r3, 2,1)
+fin
