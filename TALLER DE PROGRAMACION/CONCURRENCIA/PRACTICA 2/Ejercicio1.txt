@@ -1,1 +1,60 @@
+# EJERCICIO 1.a
 
+programa ejemplo
+procesos
+  proceso recorrerAvenidaYJuntar(E desde: numero; E hasta:numero; ES cantFlores: numero)
+  variables
+    cantEsq: numero
+  comenzar
+    cantEsq:= (hasta - desde + 1)
+    repetir cantEsq
+      mientras (HayFlorEnLaEsquina)
+        tomarFlor
+        cantFlores:= cantFlores + 1
+      mover
+  fin
+  
+  
+areas
+  ciudad: AreaC (1,1,100,100)
+  
+  
+robots
+
+  robot tipo1
+  variables
+    cantFloresTotal: numero
+    cantFloresOtro: numero
+  comenzar
+    cantFloresTotal:= 0
+    recorrerAvenidaYJuntar(1,10,cantFloresTotal)
+    EnviarMensaje(cantFloresTotal, r2)
+    RecibirMensaje(cantFloresOtro, r2)
+    si (cantFloresTotal > cantFloresOtro)
+      Informar(cantFloresTotal-cantFloresOtro)
+  fin
+  
+  robot tipo2
+  variables
+    cantFloresTotal: numero
+    cantFloresOtro: numero
+  comenzar
+    cantFloresTotal:= 0
+    recorrerAvenidaYJuntar(11,20,cantFloresTotal)
+    EnviarMensaje(cantFloresTotal, r1)
+    RecibirMensaje(cantFloresOtro, r1)
+    si (cantFloresTotal > cantFloresOtro)
+      Informar(cantFloresTotal-cantFloresOtro)
+  fin
+  
+  
+  
+variables
+  r1: tipo1
+  r2: tipo2
+comenzar
+  AsignarArea(r1, ciudad)
+  AsignarArea(r2, ciudad)
+  Iniciar(r1, 1,1)
+  Iniciar(r2, 2,11)
+fin
