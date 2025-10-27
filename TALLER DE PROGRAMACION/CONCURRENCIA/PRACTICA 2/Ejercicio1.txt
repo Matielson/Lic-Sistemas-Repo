@@ -1,6 +1,6 @@
 # EJERCICIO 1.a
 
-programa ejemplo
+programa ejercicio1.a
 procesos
   proceso recorrerAvenidaYJuntar(E desde: numero; E hasta:numero; ES cantFlores: numero)
   variables
@@ -62,7 +62,7 @@ fin
 
 # EJERCICIO 1.b
 
-programa ejemplo
+programa ejercicio1.b
 procesos
   proceso recorrerAvenidaYJuntar(E desde: numero; E hasta:numero; ES cantFlores: numero)
   variables
@@ -128,7 +128,7 @@ fin
 
 # EJERCICIO 1.c y 1.d
 
-programa ejemplo
+programa ejercicio1.c.d
 procesos
   proceso recorrerAvenidaYJuntar(E desde: numero; E hasta:numero; ES cantFlores: numero)
   variables
