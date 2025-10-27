@@ -1,4 +1,4 @@
-programa ejercicio4
+programa ejercicio5
 procesos
   proceso recorrerCalles(E cantEsquinas: numero; E calle1: numero; E calle2: numero; E desde: numero)
   comenzar
