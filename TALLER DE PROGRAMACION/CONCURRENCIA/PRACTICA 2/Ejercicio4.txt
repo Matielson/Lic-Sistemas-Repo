@@ -23,40 +23,53 @@ areas
 robots
   robot recolector
   variables
+    avActual: numero
     arrancar: boolean
-    terminar: boolean
+    termine: boolean
+    ID: numero
   comenzar
     avActual:= PosAv
-    RecibirMensaje(arrancar, fiscalizador)
-    limparEsquina
-    Pos(avActual, 1)
-    termine:= V
-    EnviarMensaje(termine, fiscalizador)
+    RecibirMensaje(ID, fisc)
+    RecibirMensaje(arrancar, fisc)
+    mientras (arrancar = V)
+      limpiarEsquina
+      Pos(avActual, 1)
+      termine:= V
+      EnviarMensaje(termine, fisc)
+      RecibirMensaje(arrancar, fisc)
   fin
   
   robot fiscalizador
   variables
     start: boolean
     end: boolean
+    seguir: boolean
     idActual: numero
   comenzar
-    ASIGNO IDS A CADA ROBOT
-    
-    REPETIR 10
-    
-      GENERO UN NUMERO ALEATORIO DE 1 A 4 
-      SI (ES 1)
-        ENVIO EL MENSAJE AL RECOLECTOR 1
-        SINO 
-          SI (ES 2)
-            ENVIO EL MENSAJE AL RECOLECTOR 2
-            SINO
-              SI (ES 3)
-                ENVIO EL MENSAJE AL RECOLECTOR 3
-                SINO
-                  ENVIO EL MENSAJE AL RECOLECTOR 4
-                
-      SUMO 1 A LA CANT DE ACCESOS
+    start:= V
+    end:= F
+    EnviarMensaje(1, rec1)
+    EnviarMensaje(2, rec2)
+    EnviarMensaje(3, rec3)
+    EnviarMensaje(4, rec4)
+    repetir 10
+      Random(idActual, 1, 4)
+      si (idActual = 1)
+        EnviarMensaje(start, rec1)
+        RecibirMensaje(seguir, rec1)
+      si (idActual = 2)
+        EnviarMensaje(start, rec2)
+        RecibirMensaje(seguir, rec2)
+      si (idActual = 3)
+        EnviarMensaje(start, rec3)
+        RecibirMensaje(seguir, rec3)
+      si (idActual = 4)
+        EnviarMensaje(start, rec4)
+        RecibirMensaje(seguir, rec4)
+    EnviarMensaje(end, rec1)
+    EnviarMensaje(end, rec2)
+    EnviarMensaje(end, rec3)
+    EnviarMensaje(end, rec4)
   fin
   
   
@@ -68,16 +81,18 @@ variables
   rec4: recolector
   fisc: fiscalizador
 comenzar
-  AsignarArea(R_info, ciudad)
-  Iniciar(R_info, 1,1)
-
-    RecibirMensaje(arrancar, fiscalizador)
-    limparEsquina
-    EnviarMensaje(termine, fiscalizador)
-  fin
-variables
-  R_info: robot1
-comenzar
-  AsignarArea(R_info, ciudad)
-  Iniciar(R_info, 1,1)
+  AsignarArea(rec1, areaRecolector1)
+  AsignarArea(rec2, areaRecolector2)
+  AsignarArea(rec3, areaRecolector3)
+  AsignarArea(rec4, areaRecolector4)
+  AsignarArea(rec1, cuadrante)
+  AsignarArea(rec2, cuadrante)
+  AsignarArea(rec3, cuadrante)
+  AsignarArea(rec4, cuadrante)
+  AsignarArea(fisc, areaFiscalizador)
+  Iniciar(fisc, 1,1)
+  Iniciar(rec1, 25,1)
+  Iniciar(rec2, 30,1)
+  Iniciar(rec3, 35,1)
+  Iniciar(rec4, 40,1)
 fin
