@@ -14,7 +14,11 @@ procesos
       tomarPapel
   fin
 areas
-  areaGeneral: AreaC (1,1,100,100)
+  areaFiscalizador: AreaP (1,1,1,1)
+  areaRecolector1: AreaP (25,1,25,1)
+  areaRecolector2: AreaP (30,1,30,1)
+  areaRecolector3: AreaP (35,1,35,1)
+  areaRecolector4: AreaP (40,1,40,1)
   cuadrante: AreaPC (25,25,75,75)
 robots
   robot recolector
@@ -22,6 +26,51 @@ robots
     arrancar: boolean
     terminar: boolean
   comenzar
+    avActual:= PosAv
+    RecibirMensaje(arrancar, fiscalizador)
+    limparEsquina
+    Pos(avActual, 1)
+    termine:= V
+    EnviarMensaje(termine, fiscalizador)
+  fin
+  
+  robot fiscalizador
+  variables
+    start: boolean
+    end: boolean
+    idActual: numero
+  comenzar
+    ASIGNO IDS A CADA ROBOT
+    
+    REPETIR 10
+    
+      GENERO UN NUMERO ALEATORIO DE 1 A 4 
+      SI (ES 1)
+        ENVIO EL MENSAJE AL RECOLECTOR 1
+        SINO 
+          SI (ES 2)
+            ENVIO EL MENSAJE AL RECOLECTOR 2
+            SINO
+              SI (ES 3)
+                ENVIO EL MENSAJE AL RECOLECTOR 3
+                SINO
+                  ENVIO EL MENSAJE AL RECOLECTOR 4
+                
+      SUMO 1 A LA CANT DE ACCESOS
+  fin
+  
+  
+  
+variables
+  rec1: recolector
+  rec2: recolector
+  rec3: recolector
+  rec4: recolector
+  fisc: fiscalizador
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+
     RecibirMensaje(arrancar, fiscalizador)
     limparEsquina
     EnviarMensaje(termine, fiscalizador)
