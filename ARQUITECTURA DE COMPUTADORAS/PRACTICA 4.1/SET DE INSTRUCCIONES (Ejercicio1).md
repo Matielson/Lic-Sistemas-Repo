@@ -41,7 +41,7 @@
 | **lbu**     | LMEM | Carga un byte sin signo                     | `lbu $t0, 4($t1)` → $t0 = byte sin signo de memoria[$t1 + 4] |
 | **lw**      | LMEM | Carga una palabra (32 bits) desde memoria   | `lw $t0, 0($t1)` → $t0 = palabra de 32 bits en memoria[$t1]  |
 
-#Escritura de memoria (EMEM)
+# Escritura de memoria (EMEM)
 | Instrucción | Tipo | Significado / Comentario breve | Ejemplo                                           |
 | ----------- | ---- | ------------------------------ | ------------------------------------------------- |
 | **sb**      | EMEM | Guarda un byte en memoria      | `sb $t0, 4($t1)` → memoria[$t1 + 4] = byte de $t0 |
