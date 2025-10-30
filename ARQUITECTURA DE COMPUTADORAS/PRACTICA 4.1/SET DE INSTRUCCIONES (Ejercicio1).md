@@ -18,32 +18,32 @@
 | **nop**     | AL   | “No operation”: no hace nada (espera un ciclo).                | `nop`                                   |
 
 # Salto condicional (SC)
-| Instrucción | Tipo | Significado / Comentario breve                 |
-| ----------- | ---- | ---------------------------------------------- |
-| **beq**     | SC   | Salta si los registros son iguales             |
-| **beqz**    | SC   | Salta si el registro es igual a 0              |
-| **bnez**    | SC   | Salta si el registro es distinto de 0          |
-| **bne**     | SC   | Salta si los registros son distintos           |
+| Instrucción | Tipo | Significado / Comentario breve        | Ejemplo                                                    |
+| ----------- | ---- | ------------------------------------- | ---------------------------------------------------------- |
+| **beq**     | SC   | Salta si los registros son iguales    | `beq $t0, $t1, etiqueta` → Salta a `etiqueta` si $t0 = $t1 |
+| **beqz**    | SC   | Salta si el registro es igual a 0     | `beqz $t0, etiqueta` → Salta a `etiqueta` si $t0 = 0       |
+| **bnez**    | SC   | Salta si el registro es distinto de 0 | `bnez $t0, etiqueta` → Salta a `etiqueta` si $t0 ≠ 0       |
+| **bne**     | SC   | Salta si los registros son distintos  | `bne $t0, $t1, etiqueta` → Salta a `etiqueta` si $t0 ≠ $t1 |
 
 # Salto incondicional (SI)
-| Instrucción | Tipo | Significado / Comentario breve                 |
-| ----------- | ---- | ---------------------------------------------- |
-| **halt**    | SI   | Detiene la ejecución del programa              |
-| **j**       | SI   | Salto incondicional a una etiqueta             |
-| **jal**     | SI   | Salto incondicional con enlace (a subrutina)   |
-| **jr**      | SI   | Salta a la dirección almacenada en un registro |
+| Instrucción | Tipo | Significado / Comentario breve                 | Ejemplo                                                                       |
+| ----------- | ---- | ---------------------------------------------- | ----------------------------------------------------------------------------- |
+| **halt**    | SI   | Detiene la ejecución del programa              | `halt` → Termina el programa inmediatamente                                   |
+| **j**       | SI   | Salto incondicional a una etiqueta             | `j etiqueta` → Salta siempre a `etiqueta`                                     |
+| **jal**     | SI   | Salto incondicional con enlace (a subrutina)   | `jal subrutina` → Salta a `subrutina` y guarda la dirección de retorno en $ra |
+| **jr**      | SI   | Salta a la dirección almacenada en un registro | `jr $ra` → Salta a la dirección que está en $ra                               |
 
 # Lectura de memoria (LMEM)
-| Instrucción | Tipo | Significado / Comentario breve                 |
-| ----------- | ---- | ---------------------------------------------- |
-| **ld**      | LMEM | Carga un doubleword (64 bits) desde memoria    |
-| **lb**      | LMEM | Carga un byte con signo desde memoria          |
-| **lbu**     | LMEM | Carga un byte sin signo                        |
-| **lw**      | LMEM | Carga una palabra (32 bits) desde memoria      |
+| Instrucción | Tipo | Significado / Comentario breve              | Ejemplo                                                      |
+| ----------- | ---- | ------------------------------------------- | ------------------------------------------------------------ |
+| **ld**      | LMEM | Carga un doubleword (64 bits) desde memoria | `ld $t0, 8($t1)` → $t0 = memoria[$t1 + 8]                    |
+| **lb**      | LMEM | Carga un byte con signo desde memoria       | `lb $t0, 4($t1)` → $t0 = byte con signo de memoria[$t1 + 4]  |
+| **lbu**     | LMEM | Carga un byte sin signo                     | `lbu $t0, 4($t1)` → $t0 = byte sin signo de memoria[$t1 + 4] |
+| **lw**      | LMEM | Carga una palabra (32 bits) desde memoria   | `lw $t0, 0($t1)` → $t0 = palabra de 32 bits en memoria[$t1]  |
 
 #Escritura de memoria (EMEM)
-| Instrucción | Tipo | Significado / Comentario breve                 |
-| ----------- | ---- | ---------------------------------------------- |
-| **sb**      | EMEM | Guarda un byte en memoria                      |
-| **sd**      | EMEM | Guarda un doubleword (64 bits)                 |
-| **sw**      | EMEM | Guarda una palabra (32 bits)                   |
+| Instrucción | Tipo | Significado / Comentario breve | Ejemplo                                           |
+| ----------- | ---- | ------------------------------ | ------------------------------------------------- |
+| **sb**      | EMEM | Guarda un byte en memoria      | `sb $t0, 4($t1)` → memoria[$t1 + 4] = byte de $t0 |
+| **sd**      | EMEM | Guarda un doubleword (64 bits) | `sd $t0, 8($t1)` → memoria[$t1 + 8] = $t0         |
+| **sw**      | EMEM | Guarda una palabra (32 bits)   | `sw $t0, 0($t1)` → memoria[$t1] = palabra de $t0  |
