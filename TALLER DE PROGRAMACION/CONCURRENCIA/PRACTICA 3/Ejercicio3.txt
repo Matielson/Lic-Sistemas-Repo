@@ -1,11 +1,13 @@
 programa ejemplo
 procesos
-  proceso limpiarFlorEsq(E numAv: numero; E numCa: numero; ES cantFlores: numero)
+  proceso limpiarFlorEsq(E numAv: numero; E numCa: numero; ES cantFlores: numero; ES vacio: boolean)
   comenzar
     Pos(numAv, numCa)
     si (HayFlorEnLaEsquina)
       tomarFlor
       cantFlores:= cantFlores + 1
+    si (~HayFlorEnLaEsquina)
+      vacio:= V
   fin
   
 areas
@@ -25,16 +27,19 @@ robots
     avActual: numero
     caActual: numero
     cantFlores: numero
+    vacia: boolean
   comenzar
     cantFlores:= 0
+    vacia:= F
     RecibirMensaje(av,jefe)
     RecibirMensaje(ca,jefe)
     avActual:= PosAv
     caActual:= PosCa
-    BloquearEsquina(av,ca)
-    limpiarFlorEsq(av,ca, cantFlores)
-    Pos(avActual,caActual)
-    LiberarEsquina(av,ca)
+    mientras (vacia = F)
+      BloquearEsquina(av,ca)
+      limpiarFlorEsq(av,ca, cantFlores, vacia)
+      Pos(avActual,caActual)
+      LiberarEsquina(av,ca)
     EnviarMensaje(cantFlores, jefe)
   fin
   
@@ -51,6 +56,7 @@ robots
   comenzar
     Random(avenida, 2,10)
     Random(calle, 2,10)
+    max:= -1
     EnviarMensaje(avenida,r1)
     EnviarMensaje(calle,r1)
     EnviarMensaje(avenida,r2)
@@ -65,17 +71,20 @@ robots
     RecibirMensaje(Flores4, r4)
     si (Flores1 > max)
       max:= Flores1
-      robotMax:= 1
     si (Flores2 > max)
       max:= Flores2
-      robotMax:= 2
     si (Flores3 > max)
       max:= Flores3
-      robotMax:= 3
     si (Flores4 > max)
       max:= Flores3
-      robotMax:= 4
-    Informar(robotMax)
+    si (Flores1 = max)
+      Informar(1)
+    si (Flores2 = max)
+      Informar(2)
+    si (Flores3 = max)
+      Informar(3)
+    si (Flores4 = max)
+      Informar(4)
   fin
   
   
