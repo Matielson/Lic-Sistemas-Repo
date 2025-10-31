@@ -36,9 +36,9 @@
 # Lectura de memoria (LMEM)
 | Instrucción | Tipo | Significado / Comentario breve              | Ejemplo                                                      |
 | ----------- | ---- | ------------------------------------------- | ------------------------------------------------------------ |
-| **ld**      | LMEM | Carga un doubleword (64 bits) desde memoria | `ld $t0, 8($t1)` → $t0 = memoria[$t1 + 8]                    |
-| **lb**      | LMEM | Carga un byte con signo desde memoria       | `lb $t0, 4($t1)` → $t0 = byte con signo de memoria[$t1 + 4]  |
-| **lbu**     | LMEM | Carga un byte sin signo                     | `lbu $t0, 4($t1)` → $t0 = byte sin signo de memoria[$t1 + 4] |
+| **ld**      | LMEM | Carga un doubleword (64 bits) desde memoria | `ld R1, A(R0)` → R1 = memoria[A + 0]                    |
+| **lb**      | LMEM | Carga un byte con signo desde memoria       | `lb R2, B(3)` → R2 = byte con signo de memoria[B + 3]  |
+| **lbu**     | LMEM | Carga un byte sin signo                     | `lbu R3, A(R0)` → R3 = byte sin signo de memoria[A + 0] |
 | **lw**      | LMEM | Carga una palabra (32 bits) desde memoria   | `lw $t0, 0($t1)` → $t0 = palabra de 32 bits en memoria[$t1]  |
 
 # Escritura de memoria (EMEM)
