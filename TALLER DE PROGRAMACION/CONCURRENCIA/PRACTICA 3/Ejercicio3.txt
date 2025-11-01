@@ -1,4 +1,4 @@
-programa ejemplo
+programa ejercicio3
 procesos
   proceso limpiarFlorEsq(E numAv: numero; E numCa: numero; ES cantFlores: numero; ES vacio: boolean)
   comenzar
