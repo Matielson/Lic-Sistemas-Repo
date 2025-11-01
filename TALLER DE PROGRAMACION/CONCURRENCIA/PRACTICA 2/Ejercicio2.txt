@@ -35,27 +35,7 @@ areas
   
 robots
 
-  robot tipo1
-  variables
-    alto: numero
-    cantEsq: numero
-  comenzar
-    Random(alto, 1, 5)
-    hacerEscalera(alto,cantEsq)
-    EnviarMensaje(cantEsq, robotJefe)
-  fin
-  
-  robot tipo2
-  variables
-    alto: numero
-    cantEsq: numero
-  comenzar
-    Random(alto, 1, 5)
-    hacerEscalera(alto,cantEsq)
-    EnviarMensaje(cantEsq, robotJefe)
-  fin
-  
-  robot tipo3
+  robot juntador
   variables
     alto: numero
     cantEsq: numero
@@ -78,9 +58,9 @@ robots
   fin
   
 variables
-  r1: tipo1
-  r2: tipo2
-  r3: tipo3
+  r1: juntador
+  r2: juntador
+  r3: juntador
   robotJefe: jefe
 comenzar
   AsignarArea(r1, ciudad)
