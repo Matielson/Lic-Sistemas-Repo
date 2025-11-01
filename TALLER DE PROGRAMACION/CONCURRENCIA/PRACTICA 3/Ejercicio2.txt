@@ -1,4 +1,4 @@
-programa ejemplo
+programa ejercicio2
 procesos
   proceso hacerEscalonDerFlores(E medida: numero; ES cantVerticesFlores: numero)
   comenzar
