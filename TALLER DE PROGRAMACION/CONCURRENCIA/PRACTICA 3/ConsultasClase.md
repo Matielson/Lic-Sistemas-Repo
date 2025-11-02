@@ -12,3 +12,8 @@
 # EJERCICIO 4
 
 - Esta bien la parte de infomar el robot que llego ultimo? (RecibirMensaje(termino, *), RecibirMensaje(quienEs, *))
+
+# EJERCICIO 5
+
+- Hace falta que haga la parte de los ID's?
+- Si pongo (RecibirMensaje(variable, r1) pero antes me manda un mensaje el r2, en esa instruccion se queda esperando a recibir el del 2?
