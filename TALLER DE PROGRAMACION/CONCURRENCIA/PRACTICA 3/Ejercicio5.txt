@@ -51,10 +51,7 @@ robots
   
   robot coordinador
   variables
-    cantTotalPasos1: numero
-    cantTotalPasos2: numero
-    cantTotalPasos3: numero
-    cantTotalPasos4: numero
+    cantTotalPasos: numero
     max: numero
     maxRobot: numero
   comenzar
@@ -63,26 +60,22 @@ robots
     EnviarMensaje(2, r2)
     EnviarMensaje(3, r3)
     EnviarMensaje(4, r4)
-    RecibirMensaje(cantTotalPasos1, r1)
-    RecibirMensaje(cantTotalPasos2, r2)
-    RecibirMensaje(cantTotalPasos3, r3)
-    RecibirMensaje(cantTotalPasos4, r4)
-    si (cantTotalPasos1 > max)
-      max:= cantTotalPasos1
-    si (cantTotalPasos2 > max)
-      max:= cantTotalPasos2
-    si (cantTotalPasos3 > max)
-      max:= cantTotalPasos3
-    si (cantTotalPasos4 > max)
-      max:= cantTotalPasos4
-    si (cantTotalPasos1 = max)
-      Informar(1)
-    si (cantTotalPasos2 = max)
-      Informar(2)
-    si (cantTotalPasos3 = max)
-      Informar(3)
-    si (cantTotalPasos4 = max)
-      Informar(4)
+    repetir 4
+      RecibirMensaje(ID, *)
+      si (ID = 1)
+        RecibirMensaje(cantTotalPasos, r1)
+        sino
+          si (ID = 2)
+            RecibirMensaje(cantTotalPasos, r2)
+            sino
+              si (ID = 3)
+                RecibirMensaje(cantTotalPasos, r3)
+                sino
+                  si (ID = 4)
+                    RecibirMensaje(cantTotalPasos, r4)
+      si (cantTotalPasos > max)
+        max:= cantTotalPasos
+        maxRobot:= ID
   fin
   
   
