@@ -6,8 +6,8 @@ procesos
     si (HayFlorEnLaEsquina)
       tomarFlor
       cantFlores:= cantFlores + 1
-      sino
-        vacio:= V
+    sino
+      vacio:= V
   fin
   
 areas
