@@ -7,7 +7,7 @@
 
 - Esta bien que ingresen a la esquina y pregunten si hay flor si ya se habia liberado? (Los 4 robots a la vez entra al mientras y se quedan esperando que se libere la esquina) **SI, ESTA BIEN, NO QUEDA OTRA**
 - Esta bien hecha la parte de informar el robot que mas flores junto? (Esta bien sin ID o como seria la manera correcta de hacerlo?) **LA MANERA CORRECTA DE HACERLO ES CON LOS IDS**
-- Si empatan en la cantidad de flores juntadas, que ganador informo? (Se deben informar todos los que mas juntaron en caso de empate o no informar nada?) 
+- Si empatan en la cantidad de flores juntadas, que ganador informo? (Se deben informar todos los que mas juntaron en caso de empate o no informar nada?) **DA IGUAL, PERO HAY QUE TENER CUIDADO CON COMO RECIBO LAS CANTIDADES DE CADA ROBOT (EN ESTE CASO, TENGO QUE HACERLO CON ID'S)** 
 
 # EJERCICIO 4
 
