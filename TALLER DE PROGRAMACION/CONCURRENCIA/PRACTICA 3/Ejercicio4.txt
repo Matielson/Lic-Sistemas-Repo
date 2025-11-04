@@ -22,11 +22,13 @@ robots
         tomarFlor
       si (~HayFlorEnLaEsquina)
         termino:= V
+      BloquearEsquina(11,11)
       Pos(11,11)
+      LiberarEsquina(10,10)
       si (HayFlorEnLaBolsa)
         depositarFlor
       Pos(avInicial, caInicial)
-      LiberarEsquina(10,10)
+      LiberarEsquina(11,11)
     EnviarMensaje(termino, coordi)
     EnviarMensaje(quienSoy, coordi)
   fin
