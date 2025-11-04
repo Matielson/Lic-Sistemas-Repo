@@ -1,0 +1,154 @@
+programa ejercicio1
+procesos
+  proceso juntarFloresServidas
+  comenzar
+    mover
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+  
+areas
+  AreaInicioServidor: AreaP (100,100,100,100)
+  AreaInicioCliente1: AreaPC (1,1,1,100)
+  AreaInicioCliente2: AreaPC (2,1,2,100)
+  AreaInicioCliente3: AreaPC (3,1,3,100)
+  
+  
+robots
+  robot cliente
+  variables
+    cantFlores: numero
+    pasos: numero
+    entrego, termine: boolean
+    ID: numero
+    avActual, caActual, caSiguiente: numero
+  comenzar
+  
+    { Asigno variables }
+    pasos:= 0
+    
+    mientras (pasos < 100)
+      avActual:= PosAv
+      caActual:= PosCa
+      caSiguiente:= PosCa + 1
+      
+      { Recibo el Identificador del cliente }
+      RecibirMensaje(ID, servi)
+      
+      { Genero una cantidad de Flores aleatoria entre 1 y 4 }
+      Random(cantFlores,1,4)
+    
+      { Envio datos al servidor para que me entregue las flores }
+      EnviarMensaje(ID, servi)
+      EnviarMensaje(cantFlores, servi)
+      EnviarMensaje(avActual, servi)
+      EnviarMensaje(caSiguiente, servi)
+    
+      { Recibo orden de que ya entrego las flores pedidas }
+      RecibirMensaje(entrego, servi)
+    
+      { Junto las flores servidas (donde las dejo el servidor) }
+      juntarFloresServidas
+    
+      { Dejo las flores a lo largo de la avenida }
+      mientras (HayFlorEnLaBolsa)
+        depositarFlor
+        mover
+        pasos:= pasos + 1
+      
+      { Si llegue a la esquina 100 le aviso al servidor que termine }
+      si (pasos = 100)
+        EnviarMensaje(ID, servi)
+        EnviarMensaje(0, servi)
+  fin
+  
+  robot servidor
+  variables
+    ID: numero
+    cantFlores: numero
+    termine, terminar: boolean
+    av, ca: numero
+  comenzar
+    terminar:= F
+    
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+
+    
+    
+    mientras (terminar = F)
+      { Asigno Identificadores a cada cliente } 
+      EnviarMensaje(1, cli1)
+      EnviarMensaje(2, cli2)
+      EnviarMensaje(3, cli3)
+    
+      { Recibo el ID del cliente que quiere flores }
+      RecibirMensaje (ID, *)
+    
+      { Dependiendo el ID que sea, recibo las flores de ese robot }
+      si (ID = 1)
+        RecibirMensaje(cantFlores, cli1)
+      sino
+        si (ID = 2)
+          RecibirMensaje(cantFlores, cli2)
+        sino
+          RecibirMensaje(cantFlores, cli3)
+        
+      { Si no termino (es decir, cantFlores no es 0) le sirvo flores al cliente solicitado }
+      si (cantFlores <> 0)
+        { Dependiendo el ID que sea, recibo la Avenida y la Calle en donde tengo que servir }
+        si (ID = 1)
+          RecibirMensaje(av, cli1)
+          RecibirMensaje(ca, cli1)
+        sino
+          si (ID = 2)
+            RecibirMensaje(av, cli2)
+            RecibirMensaje(ca, cli2)
+          sino
+            RecibirMensaje(av, cli3)
+            RecibirMensaje(ca, cli3)
+  
+        { Me posiciono en la esquina recibida del robot cliente }
+        BloquearEsquina(av, ca)
+        Pos(av, ca)
+    
+        { Deposito la cantidad de flores }
+        repetir cantFlores
+          depositarFlor
+    
+        { Vuelvo a la posicion inicial del servidor y aviso al cliente que ya entregue }
+        Pos(100,100)
+        LiberarEsquina(av,ca)
+        si (ID = 1)
+          EnviarMensaje(termine, cli1)
+        sino
+          si (ID = 2)
+            EnviarMensaje(termine, cli2)
+          sino
+            EnviarMensaje(termine, cli3)
+    
+      { Si es 0, cuento un robot terminado y si ya terminaron los 3, corto la ejecucion }
+      sino
+        robotsTerminados:= robotsTerminados + 1
+        si (robotsTerminados = 3)
+          terminar:= V
+  fin
+  
+variables
+  cli1: cliente
+  cli2: cliente
+  cli3: cliente
+  servi: servidor
+comenzar
+  AsignarArea(cli1, AreaInicioCliente1)
+  AsignarArea(cli2, AreaInicioCliente2)
+  AsignarArea(cli3, AreaInicioCliente3)
+  AsignarArea(servi, AreaInicioServidor)
+  AsignarArea(servi, AreaInicioCliente1)
+  AsignarArea(servi, AreaInicioCliente2)
+  AsignarArea(servi, AreaInicioCliente3)
+  Iniciar(cli1, 1,1)
+  Iniciar(cli2, 2,1)
+  Iniciar(cli3, 3,1)
+  Iniciar(servi, 100,100)
+fin
