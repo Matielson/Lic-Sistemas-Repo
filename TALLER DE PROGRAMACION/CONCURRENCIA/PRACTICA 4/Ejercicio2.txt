@@ -7,7 +7,7 @@ procesos
   comenzar
     papeles:= 0
     
-    mientras ((papeles < 5) & (pasos < 100))
+    mientras ((papeles < 5) & (pasos < 99))
       mientras ((HayPapelEnLaEsquina) & (papeles < 5))
         tomarPapel
         papeles:= papeles + 1
@@ -20,16 +20,39 @@ procesos
       BloquearEsquina(50,50)
       Pos(50,50)
       mientras (HayPapelEnLaBolsa)
-        depositarFlor
+        depositarPapel
       Pos(avInicial, caInicial)
       LiberarEsquina(50,50)
   fin
   
   proceso intentarJuntarPapeles (E cant: numero)
   variables
+    cantPapeles, cantAux: numero
+    avInicial, caInicial: numero
+  comenzar
+    cantPapeles:= 0
+    avInicial:= PosAv
+    caInicial:= PosCa
+    BloquearEsquina(50,50)
+    Pos(50,50)
+    cantAux:= 0
+    mientras ((HayPapelEnLaEsquina) & (cantPapeles < cant))
+      tomarPapel
+      cantPapeles:= cantPapeles + 1
+      cantAux:= cantAux + 1
+    si (cantPapeles <> cant)
+      repetir cantAux
+        depositarPapel
+    Pos(avInicial, caInicial)
+    LiberarEsquina(50,50)
+  fin
+  
+  proceso verSiTermino (E cant: numero; ES termino: boolean)
+  variables
     cantPapeles: numero
     avInicial, caInicial: numero
   comenzar
+    cantPapeles:= 0
     avInicial:= PosAv
     caInicial:= PosCa
     BloquearEsquina(50,50)
@@ -40,6 +63,7 @@ procesos
     si (cantPapeles <> cant)
       mientras (HayPapelEnLaBolsa)
         depositarPapel
+      termino:= V
     Pos(avInicial, caInicial)
     LiberarEsquina(50,50)
   fin
@@ -52,21 +76,39 @@ robots
   variables
     pasos: numero
   comenzar
-    mientras(pasos < 100)
+    mientras(pasos < 99)
       recorrerAvenidaYDepositar(pasos)
+    EnviarMensaje(V, consumi1)
+    EnviarMensaje(V, consumi2)
   fin
   
   robot consumidor
   variables
-  
+    cant: numero
+    termino, arrancar: boolean
   comenzar
-  
+    termino:= F
+    Random(cant,2,5)
+    RecibirMensaje(arrancar, *)
+    RecibirMensaje(arrancar, *)
+    repetir 8
+      intentarJuntarPapeles(cant)
+    mientras (termino = F)
+      verSiTermino(cant, termino)
   fin
   
-  
 variables
-  R_info: robot1
+  produ1: productor
+  produ2: productor
+  consumi1: consumidor
+  consumi2: consumidor
 comenzar
-  AsignarArea(R_info, ciudad)
-  Iniciar(R_info, 1,1)
+  AsignarArea(produ1, ciudad)
+  AsignarArea(produ2, ciudad)
+  AsignarArea(consumi1, ciudad)
+  AsignarArea(consumi2, ciudad)
+  Iniciar(produ1, 5,1)
+  Iniciar(produ2, 10,1)
+  Iniciar(consumi1, 11,1)
+  Iniciar(consumi2, 12,1)
 fin
