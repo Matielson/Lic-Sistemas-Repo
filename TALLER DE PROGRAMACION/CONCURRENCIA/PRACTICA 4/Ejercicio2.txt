@@ -1,0 +1,72 @@
+programa ejercicio2
+procesos
+  proceso recorrerAvenidaYDepositar(ES pasos: numero)
+  variables
+    papeles: numero
+    avInicial, caInicial: numero
+  comenzar
+    papeles:= 0
+    
+    mientras ((papeles < 5) & (pasos < 100))
+      mientras ((HayPapelEnLaEsquina) & (papeles < 5))
+        tomarPapel
+        papeles:= papeles + 1
+      mover
+      pasos:= pasos + 1
+      
+    si (papeles = 5)
+      avInicial:= PosAv
+      caInicial:= PosCa
+      BloquearEsquina(50,50)
+      Pos(50,50)
+      mientras (HayPapelEnLaBolsa)
+        depositarFlor
+      Pos(avInicial, caInicial)
+      LiberarEsquina(50,50)
+  fin
+  
+  proceso intentarJuntarPapeles (E cant: numero)
+  variables
+    cantPapeles: numero
+    avInicial, caInicial: numero
+  comenzar
+    avInicial:= PosAv
+    caInicial:= PosCa
+    BloquearEsquina(50,50)
+    Pos(50,50)
+    mientras ((HayPapelEnLaEsquina) & (cantPapeles < cant))
+      tomarPapel
+      cantPapeles:= cantPapeles + 1
+    si (cantPapeles <> cant)
+      mientras (HayPapelEnLaBolsa)
+        depositarPapel
+    Pos(avInicial, caInicial)
+    LiberarEsquina(50,50)
+  fin
+  
+areas
+  ciudad: AreaC (1,1,100,100)
+  
+robots
+  robot productor
+  variables
+    pasos: numero
+  comenzar
+    mientras(pasos < 100)
+      recorrerAvenidaYDepositar(pasos)
+  fin
+  
+  robot consumidor
+  variables
+  
+  comenzar
+  
+  fin
+  
+  
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin
