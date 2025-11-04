@@ -1,114 +1,107 @@
 programa ejercicio2
 procesos
-  proceso recorrerAvenidaYDepositar(ES pasos: numero)
+  proceso depositoEnEsquina
   variables
-    papeles: numero
     avInicial, caInicial: numero
   comenzar
-    papeles:= 0
-    
-    mientras ((papeles < 5) & (pasos < 99))
-      mientras ((HayPapelEnLaEsquina) & (papeles < 5))
-        tomarPapel
-        papeles:= papeles + 1
-      mover
-      pasos:= pasos + 1
-      
-    si (papeles = 5)
-      avInicial:= PosAv
-      caInicial:= PosCa
-      BloquearEsquina(50,50)
-      Pos(50,50)
-      mientras (HayPapelEnLaBolsa)
-        depositarPapel
+    avInicial:= PosAv      
+    caInicial:= PosCa
+    BloquearEsquina(50,50)
+    Pos(50,50)
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel
+    Pos(avInicial, caInicial)
+    LiberarEsquina(50,50)
+  fin
+  
+  proceso depositarTodosPapeles
+  comenzar
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel
+  fin
+  
+  proceso intentarJuntar (E cant: numero; ES pudo: boolean)
+  variables
+    avInicial, caInicial: numero
+    papelesAux: numero
+  comenzar
+    papelesAux:= 0
+    avInicial:= PosAv
+    caInicial:= PosCa
+    BloquearEsquina(50,50)
+    Pos(50,50)
+    mientras ((HayPapelEnLaEsquina) & (papelesAux < cant))
+      tomarPapel
+      papelesAux:= papelesAux + 1
+    si (papelesAux = cant)
       Pos(avInicial, caInicial)
       LiberarEsquina(50,50)
-  fin
-  
-  proceso intentarJuntarPapeles (E cant: numero)
-  variables
-    cantPapeles, cantAux: numero
-    avInicial, caInicial: numero
-  comenzar
-    cantPapeles:= 0
-    avInicial:= PosAv
-    caInicial:= PosCa
-    BloquearEsquina(50,50)
-    Pos(50,50)
-    cantAux:= 0
-    mientras ((HayPapelEnLaEsquina) & (cantPapeles < cant))
-      tomarPapel
-      cantPapeles:= cantPapeles + 1
-      cantAux:= cantAux + 1
-    si (cantPapeles <> cant)
-      repetir cantAux
-        depositarPapel
-    Pos(avInicial, caInicial)
-    LiberarEsquina(50,50)
-  fin
-  
-  proceso verSiTermino (E cant: numero; ES termino: boolean)
-  variables
-    cantPapeles: numero
-    avInicial, caInicial: numero
-  comenzar
-    cantPapeles:= 0
-    avInicial:= PosAv
-    caInicial:= PosCa
-    BloquearEsquina(50,50)
-    Pos(50,50)
-    mientras ((HayPapelEnLaEsquina) & (cantPapeles < cant))
-      tomarPapel
-      cantPapeles:= cantPapeles + 1
-    si (cantPapeles <> cant)
-      mientras (HayPapelEnLaBolsa)
-        depositarPapel
-      termino:= V
-    Pos(avInicial, caInicial)
-    LiberarEsquina(50,50)
+      depositarTodosPapeles
+      pudo:= V
+    sino
+      depositarTodosPapeles
+      Pos(avInicial,caInicial)
+      LiberarEsquina(50,50)
+      pudo:= F
   fin
   
 areas
   ciudad: AreaC (1,1,100,100)
   
+  
 robots
   robot productor
   variables
-    pasos: numero
+    cantPapelesActuales: numero
+    avInicial, caInicial: numero
   comenzar
-    mientras(pasos < 99)
-      recorrerAvenidaYDepositar(pasos)
-    EnviarMensaje(V, consumi1)
-    EnviarMensaje(V, consumi2)
+    mientras (PosCa <> 100)
+      mientras ((HayPapelEnLaEsquina) & (cantPapelesActuales < 5))
+        tomarPapel
+        cantPapelesActuales:= cantPapelesActuales + 1
+        
+      si (cantPapelesActuales = 5)
+        depositoEnEsquina
+        cantPapelesActuales:= 0
+      sino
+        mover
+    
+    cantPapelesActuales:= 0    
+    mientras ((HayPapelEnLaEsquina) & (cantPapelesActuales < 5))
+      tomarPapel
+      cantPapelesActuales:= cantPapelesActuales + 1
+      
+    si (cantPapelesActuales = 5)
+      depositoEnEsquina
   fin
   
   robot consumidor
   variables
+    fallos: numero
     cant: numero
-    termino, arrancar: boolean
+    pudo: boolean
   comenzar
-    termino:= F
-    Random(cant,2,5)
-    RecibirMensaje(arrancar, *)
-    RecibirMensaje(arrancar, *)
-    repetir 8
-      intentarJuntarPapeles(cant)
-    mientras (termino = F)
-      verSiTermino(cant, termino)
+    fallos:= 0
+    mientras (fallos < 8)
+      Random(cant,2,5)
+      intentarJuntar(cant, pudo)
+      si (pudo = F)
+        fallos:= fallos + 1
   fin
-  
+
+
 variables
-  produ1: productor
-  produ2: productor
-  consumi1: consumidor
-  consumi2: consumidor
+  p1: productor
+  p2: productor
+  c1: consumidor
+  c2: consumidor
 comenzar
-  AsignarArea(produ1, ciudad)
-  AsignarArea(produ2, ciudad)
-  AsignarArea(consumi1, ciudad)
-  AsignarArea(consumi2, ciudad)
-  Iniciar(produ1, 5,1)
-  Iniciar(produ2, 10,1)
-  Iniciar(consumi1, 11,1)
-  Iniciar(consumi2, 12,1)
+  AsignarArea(p1, ciudad)
+  AsignarArea(p2, ciudad)
+  AsignarArea(c1, ciudad)
+  AsignarArea(c2, ciudad)
+  Iniciar(p1, 5,1)
+  Iniciar(p2, 10,1)
+  Iniciar(c1, 11,1)
+  Iniciar(c2, 12,1)
 fin
