@@ -97,3 +97,15 @@ comenzar
   Iniciar(robotTrabajador1, 2,1)
   Iniciar(robotTrabajador2, 3,1)
 fin
+
+
+**RESPUESTA A PREGUNTAS TEORICAS**
+- Si, existe riesgo de colision, cuando no se bloquean ni liberan bien las esquinas. Puede pasar que 2 robots se choquen, o incluso si la esquina se libera mal, quede bloqueado.
+
+- La manera de evitar esto es: 
+
+1- Bloquear una esquina que puede ser accedida por 2 o mas robots
+2- Posicionarse en esa esquina
+3- hacer lo solicitado 
+4- Volver a la esquina inicial (o salir de esa esquina conflictiva y ir a una que no tenga conflicto)
+5- Liberar la esquina que puede ser accedida por 2 o mas robots.
