@@ -6,3 +6,7 @@
 
 # EJERCICIO 3
 - Preguntar como se hace el 3.b
+
+# EJERCICIO 4
+- Preguntar cual seria la justificacion a la parte de "Analizar"
+- Verificar si esta bien hecho
