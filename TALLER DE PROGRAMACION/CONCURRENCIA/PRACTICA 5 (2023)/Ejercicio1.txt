@@ -1,4 +1,4 @@
-programa ejemplo
+programa ejercicio1
 
 procesos
   proceso juntarFloresAvenida (ES cantFlores: numero)
