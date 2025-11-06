@@ -1,4 +1,4 @@
-programa ejercicio1
+programa ejemplo
 
 procesos
   proceso juntarFloresAvenida (ES cantFlores: numero)
@@ -80,10 +80,10 @@ robots
         sino
           si (ID = 3)
             RecibirMensaje(cantPapeles, A1)
-            totalEquipoAzul:= totalEquipoAzul + cantFlores
+            totalEquipoAzul:= totalEquipoAzul + cantPapeles
           sino
             RecibirMensaje(cantPapeles, A2)
-            totalEquipoAzul:= totalEquipoAzul + cantFlores
+            totalEquipoAzul:= totalEquipoAzul + cantPapeles
     
     { Asumo que: EQUIPO AZUL = 1 | EQUIPO ROJO = 2 | EMPATE = 0}
     si (totalEquipoAzul > totalEquipoRojo)
