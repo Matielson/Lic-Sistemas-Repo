@@ -228,7 +228,7 @@ robots
         sino
           RecibirMensaje(cantFlores, cli3)
           
-      { Si no termine (cantFlores no es 0), recibo la avenida y la calle del cliente.
+      { Si no termine (cantFlores no es 0), recibo la avenida y la calle del cliente. }
       si (cantFlores <> 0)
       
         si (ID = 1)
