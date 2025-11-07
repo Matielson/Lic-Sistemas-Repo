@@ -1,0 +1,111 @@
+programa ejemplo
+procesos
+  proceso juntarFloresYMover(ES cantFlores: numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      cantFlores:= cantFlores + 1
+    mover
+  fin
+  
+  proceso depositarTodasLasFlores
+  comenzar
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+  fin
+  
+  proceso juntarTodasLasFlores (ES cantFlores: numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cantFlores:= cantFlores + 1
+  fin
+  
+  
+areas
+  areaCosechador: AreaP (1,5,1,5)
+  areaRecolector1: AreaP (1,3,100,3)
+  areaRecolector2: AreaP (1,4,100,4)
+  areaDeposito: AreaC (10,10,10,10)
+  
+  
+robots
+  robot recolector
+  variables
+    cantFlores: numero
+    cantEsq: numero
+    avInicial, caInicial: numero
+  comenzar
+    cantFlores:= 0
+    cantEsq:= 1
+    derecha
+    mientras (PosAv < 100)
+      mientras (HayFlorEnLaEsquina)
+        tomarFlor
+        cantFlores:= cantFlores + 1
+      mover
+      cantEsq:= cantEsq + 1
+      
+      si (PosAv = 100)
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+          cantFlores:= cantFlores + 1
+          
+      si ((cantFlores = 10) | (cantEsq = 5))
+        avInicial:= PosAv
+        caInicial:= PosCa
+        cantEsq:= 1
+        cantFlores:= 0
+        BloquearEsquina(10,10)
+        Pos(10,10)
+        depositarTodasLasFlores
+        Pos(avInicial, caInicial)
+        LiberarEsquina(10,10)
+        EnviarMensaje(V, robotCosechador)
+    
+    EnviarMensaje(F, robotCosechador)
+        
+  fin
+  
+  robot cosechador
+  variables
+    intentar: boolean
+    avInicial, caInicial: numero
+    cantFlores, cantTotalFlores: numero
+    robotsTerminados: numero
+  comenzar
+    avInicial:= PosAv
+    caInicial:= PosCa
+    cantTotalFlores:= 0
+    robotsTerminados:= 0
+    mientras (robotsTerminados < 2)
+      RecibirMensaje(intentar, *)
+      si (intentar = V)
+        BloquearEsquina(10,10)
+        Pos(10,10)
+        juntarTodasLasFlores(cantFlores)
+        cantTotalFlores:= cantTotalFlores + cantFlores
+        Pos(avInicial, caInicial)
+        LiberarEsquina(10,10)
+      sino
+        robotsTerminados:= robotsTerminados + 1
+      
+    
+    Informar(cantTotalFlores)
+  fin
+  
+variables
+  robotCosechador: cosechador
+  robotRecolector1: recolector
+  robotRecolector2: recolector
+comenzar
+  AsignarArea(robotCosechador, areaCosechador)
+  AsignarArea(robotRecolector1, areaRecolector1)
+  AsignarArea(robotRecolector2, areaRecolector2)
+  AsignarArea(robotCosechador, areaDeposito)
+  AsignarArea(robotRecolector1, areaDeposito)
+  AsignarArea(robotRecolector2, areaDeposito)
+  Iniciar(robotCosechador, 1,5)
+  Iniciar(robotRecolector1, 1,3)
+  Iniciar(robotRecolector2, 1,4)
+fin
