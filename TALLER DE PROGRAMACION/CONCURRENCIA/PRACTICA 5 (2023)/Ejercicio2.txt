@@ -10,7 +10,7 @@ robots
     seguir: boolean
     avInicial, caInicial: numero
   comenzar
-    cantEsq:= 0
+    cantEsq:= 1
     derecha
     { BUCLE PARA RECORRER TODA LA CALLE HACIENDO LAS ETAPAS }
     mientras (PosAv < 100)
@@ -18,9 +18,14 @@ robots
         tomarFlor
       mover
       cantEsq:= cantEsq + 1
+      
+      si (PosAv = 100)
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+      
       { Si cumpli una etapa, hago lo que tengo que hacer y aviso que termine una etapa y espero que los otros robots me manden que terminaron para seguir }
       si (cantEsq = 10)
-        cantEsq:= 0
+        cantEsq:= 1
         avInicial:= PosAv
         caInicial:= PosCa
 
@@ -38,7 +43,7 @@ robots
         RecibirMensaje(seguir, *)
         RecibirMensaje(seguir, *)
         RecibirMensaje(seguir, *)
-        
+
     EnviarMensaje(V, fisc)
   fin
   
