@@ -8,17 +8,19 @@ procesos
     mover
   fin
   
-  proceso depositarTodasLasFlores
+  proceso depositarTodasLasFlores (ES cantFloresDepositadas: numero)
   comenzar
     mientras(HayFlorEnLaBolsa)
-      depositarFlor
+      depositarFlor 
+      cantFloresDepositadas:= cantFloresDepositadas + 1
   fin
   
-  proceso juntarTodasLasFlores (ES cantFlores: numero)
+  proceso juntarTodasLasFlores (ES cantFlores: numero; E cantFloresDepositadas: numero)
   comenzar
-    mientras(HayFlorEnLaEsquina)
-      tomarFlor
-      cantFlores:= cantFlores + 1
+    repetir cantFloresDepositadas
+      si (HayFlorEnLaEsquina)
+        tomarFlor
+        cantFlores:= cantFlores + 1
   fin
   
   
@@ -35,6 +37,7 @@ robots
     cantFlores: numero
     cantEsq: numero
     avInicial, caInicial: numero
+    cantFloresDepositadas: numero
   comenzar
     cantFlores:= 0
     cantEsq:= 1
@@ -58,12 +61,12 @@ robots
         cantFlores:= 0
         BloquearEsquina(10,10)
         Pos(10,10)
-        depositarTodasLasFlores
+        depositarTodasLasFlores(cantFloresDepositadas)
         Pos(avInicial, caInicial)
         LiberarEsquina(10,10)
-        EnviarMensaje(V, robotCosechador)
+        EnviarMensaje(cantFloresDepositadas, robotCosechador)
     
-    EnviarMensaje(F, robotCosechador)
+    EnviarMensaje(0, robotCosechador)
         
   fin
   
@@ -71,25 +74,26 @@ robots
   variables
     intentar: boolean
     avInicial, caInicial: numero
-    cantFlores, cantTotalFlores: numero
+    cantFlores, cantTotalFlores, cantFloresDepositadas: numero
     robotsTerminados: numero
   comenzar
     avInicial:= PosAv
     caInicial:= PosCa
     cantTotalFlores:= 0
+    cantFloresDepositadas:= 0
     robotsTerminados:= 0
     mientras (robotsTerminados < 2)
-      RecibirMensaje(intentar, *)
-      si (intentar = V)
+      RecibirMensaje(cantFloresDepositadas, *)
+      si (cantFloresDepositadas = 0)
+        robotsTerminados:= robotsTerminados + 1
+      sino
+        cantFlores:= 0
         BloquearEsquina(10,10)
         Pos(10,10)
-        juntarTodasLasFlores(cantFlores)
+        juntarTodasLasFlores(cantFlores, cantFloresDepositadas)
         cantTotalFlores:= cantTotalFlores + cantFlores
         Pos(avInicial, caInicial)
         LiberarEsquina(10,10)
-      sino
-        robotsTerminados:= robotsTerminados + 1
-      
     
     Informar(cantTotalFlores)
   fin
