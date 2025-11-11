@@ -1,3 +1,18 @@
+{
+Existen tres robots sembradores: dos papeleros RP1 y RP2 que depositan un papel en las esquinas sin papel de sus respectivas calles y un robot florero RF que deposita una flor en cada esquina sin flor de una avenida aleatoria entre 2 y 35, indicada por un robot fiscalizador.
+
+Cuando los tres sembradores terminan su tarea, el fiscalizador debe indicar al sembrador que terminó primero que vuelva a su esquina inicial, e informar la cantidad de elementos (flor o papel) que depositó dicho sembrador.
+
+Las esquinas de inicio son:
+
+- RP1 en (1,8)
+- RP2 en (15,1)
+- RF en (1,2)
+- El fiscalizador en (1,1)
+
+Configure el entorno para que los sembradores cuenten con flores suficientes en su bolsa.
+}
+
 programa ParcialTurnoD
 procesos
   
