@@ -13,6 +13,8 @@ Las esquinas de inicio son:
 Configure el entorno para que los sembradores cuenten con flores suficientes en su bolsa.
 }
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 programa ParcialTurnoD
 procesos
   
