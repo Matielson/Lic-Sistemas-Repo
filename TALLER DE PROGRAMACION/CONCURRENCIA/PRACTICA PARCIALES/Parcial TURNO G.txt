@@ -9,7 +9,7 @@ Los robots recolectores inician en la esquina (4,1) y (5,1), y el robot coordina
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-programa parcialTurnoG
+programa ParcialTurnoG
 procesos
   proceso limpiarAvenida
   comenzar
