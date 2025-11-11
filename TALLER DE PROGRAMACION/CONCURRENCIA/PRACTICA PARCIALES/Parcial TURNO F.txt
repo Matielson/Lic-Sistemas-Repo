@@ -44,7 +44,14 @@ procesos
   fin
   
 areas
-  ciudad: AreaC (1,1,100,100)
+  areaEquipoA: AreaPC (1,1,11,11)
+  areaEquipoB: AreaPC (13,1,23,11)
+  
+  areaFiscalizador: AreaP (30,1,30,1)
+  
+  areaDeposito: AreaPC (20,20,20,20)
+  
+  
 robots
   robot A1
   variables
@@ -167,11 +174,16 @@ variables
   robotB2: B2
   robotFiscalizador: fiscalizador
 comenzar
-  AsignarArea(robotA1, ciudad)
-  AsignarArea(robotA2, ciudad)
-  AsignarArea(robotB1, ciudad)
-  AsignarArea(robotB2, ciudad)
-  AsignarArea(robotFiscalizador, ciudad)
+  AsignarArea(robotA1, areaEquipoA)
+  AsignarArea(robotA2, areaEquipoA)
+  AsignarArea(robotB1, areaEquipoB)
+  AsignarArea(robotB2, areaEquipoB)
+  AsignarArea(robotFiscalizador, areaFiscalizador)
+  
+  AsignarArea(robotA1, areaDeposito)
+  AsignarArea(robotA2, areaDeposito)
+  AsignarArea(robotB1, areaDeposito)
+  AsignarArea(robotB2, areaDeposito)
   Iniciar(robotA1, 1,1)
   Iniciar(robotA2, 11,10)
   Iniciar(robotB1, 13,1)
