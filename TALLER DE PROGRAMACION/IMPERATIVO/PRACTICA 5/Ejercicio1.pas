@@ -65,7 +65,7 @@ type
 			end
 			else
 				pri:= medio + 1;
-				medio:= (pri + ult) div 2;
+			medio:= (pri + ult) div 2;
 		end;
 		if (pri <= ult) and (valor = v[medio].codigo) then begin
 			buscar:= medio;
