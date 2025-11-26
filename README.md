@@ -9,11 +9,11 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 
 ## Ingreso (6 semanas)
 
-| Semestre | Código | Materia                                    | Estado | Nota / Observación |
-|----------|--------|---------------------------------------------|--------|---------------------|
-| Ingreso  | CNE    | Expresión de Problemas y Algoritmos         | ✅     | 7                   |
-| Ingreso  | CNC    | Conceptos de Organización de Computadoras   | ✅     | 6                   |
-| Ingreso  | CNM    | Matemática 0                                | ✅     | 7                   |
+| Código | Materia                                    | Estado | Nota / Observación |
+|--------|---------------------------------------------|--------|---------------------|
+| CNE    | Expresión de Problemas y Algoritmos         | ✅     | 7                   |
+| CNC    | Conceptos de Organización de Computadoras   | ✅     | 6                   |
+| CNM    | Matemática 0                                | ✅     | 7                   |
 
 ---
 
