@@ -22,5 +22,5 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 | Código | Materia                                                | Estado  |
 |--------|--------------------------------------------------------|---------|
 | SI107  | Taller de Programación                                 | ⬜       |
-| SI105  | Arquitectura de Computadoras                           | ⬜       |
-| SI102  | Matemática 2                                           | ⬜       |
+| SI105  | Arquitectura de Computadoras                           | ✅ |FALTA FINAL|
+| SI102  | Matemática 2                                           | ✅ |FALTA FLOTANTE PARA PROMO|
