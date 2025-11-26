@@ -1,0 +1,3 @@
+EJERCICIO 4:
+
+- Que es mejor para almacenar en el primer arbol, un registro o dos campos distintos adentro del arbol?  (uno para el codigo de autor y otro para la cantidad de libros que tiene ese autor)
