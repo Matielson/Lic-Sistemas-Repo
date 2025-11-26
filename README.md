@@ -30,5 +30,7 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 ## 2° Semestre
 
 | Código | Materia                                | Estado | Nota / Observación            |
-|--------|-----------------------------------------|--------|-------------------
-
+|--------|-----------------------------------------|--------|-------------------------------|
+| SI107  | Taller de Programación                  | ⬜      | —                             |
+| SI105  | Arquitectura de Computadoras            | ✅     | Falta final                   |
+| SI102  | Matemática 2                            | ✅     | Falta flotante para promo     |
