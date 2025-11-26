@@ -19,7 +19,7 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 | SI104  | Organización de Computadoras                           | ✅ |4 (final)|
 | SI101  | Matemática 1                                           | ✅ |9 (promo)|
 ### 2° semestre
-| Código | Materia                                                | Estado  |
+| Código | Materia                                                | Estado  ||
 |--------|--------------------------------------------------------|---------|
 | SI107  | Taller de Programación                                 | ⬜       |
 | SI105  | Arquitectura de Computadoras                           | ✅ |FALTA FINAL|
