@@ -18,7 +18,9 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 | SI106  | Conceptos de Algoritmos, Datos y Programas             | ✅ |FALTA FINAL|
 | SI104  | Organización de Computadoras                           | ✅ |4 (final)|
 | SI101  | Matemática 1                                           | ✅ |9 (promo)|
+
 ### 2° semestre
+
 | Código | Materia                                                | Estado  ||
 |--------|--------------------------------------------------------|---------||
 | SI107  | Taller de Programación                                 | ⬜       ||
