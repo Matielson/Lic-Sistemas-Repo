@@ -5,24 +5,30 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 
 ## PRIMER AÑO
 
-| Semestre              | Código | Materia                                               | Estado  ||
-|-----------------------|--------|--------------------------------------------------------|--------|------|
-| Ingreso (6 semanas)   | CNE    | Expresión de Problemas y Algoritmos                   | ✅ |   7  |
-|                       | CNC    | Conceptos de Organización de Computadoras             | ✅ |   6  |
-|                       | CNM    | Matemática 0                                          | ✅ |   7  |
+---
 
-### 1° semestre
+## Ingreso (6 semanas)
 
-| Código | Materia                                               | Estado  ||
-|--------|--------------------------------------------------------|---------|---------|
-| SI106  | Conceptos de Algoritmos, Datos y Programas             | ✅ |FALTA FINAL|
-| SI104  | Organización de Computadoras                           | ✅ |4 (final)|
-| SI101  | Matemática 1                                           | ✅ |9 (promo)|
+| Semestre | Código | Materia                                    | Estado | Nota / Observación |
+|----------|--------|---------------------------------------------|--------|---------------------|
+| Ingreso  | CNE    | Expresión de Problemas y Algoritmos         | ✅     | 7                   |
+| Ingreso  | CNC    | Conceptos de Organización de Computadoras   | ✅     | 6                   |
+| Ingreso  | CNM    | Matemática 0                                | ✅     | 7                   |
 
-### 2° semestre
+---
 
-| Código | Materia                                                | Estado  ||
-|--------|--------------------------------------------------------|---------||
-| SI107  | Taller de Programación                                 | ⬜       ||
-| SI105  | Arquitectura de Computadoras                           | ✅ |FALTA FINAL||
-| SI102  | Matemática 2                                           | ✅ |FALTA FLOTANTE PARA PROMO||
+## 1° Semestre
+
+| Código | Materia                                      | Estado | Nota / Observación |
+|--------|-----------------------------------------------|--------|---------------------|
+| SI106  | Conceptos de Algoritmos, Datos y Programas    | ✅     | Falta final         |
+| SI104  | Organización de Computadoras                  | ✅     | 4 (final)           |
+| SI101  | Matemática 1                                  | ✅     | 9 (promo)           |
+
+---
+
+## 2° Semestre
+
+| Código | Materia                                | Estado | Nota / Observación            |
+|--------|-----------------------------------------|--------|-------------------
+
