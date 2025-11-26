@@ -1,3 +1,7 @@
 EJERCICIO 4:
 
+Inciso A:
 - Que es mejor para almacenar en el primer arbol, un registro o dos campos distintos adentro del arbol?  (uno para el codigo de autor y otro para la cantidad de libros que tiene ese autor)
+
+Inciso B:
+- La funcion debe retornar el vector ordenado tambien? O unicamente lo ordena para saber cual es el mayor?
