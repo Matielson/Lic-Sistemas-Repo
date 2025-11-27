@@ -13,3 +13,4 @@ Inciso B:
 
 - Cuando tengo que implementar un vector y no puedo relacionar la posicion con lo que estoy buscando. Esta bien implementar la busqueda de manera secuencial (de la pos 1 hasta que la encuentre) u ordenar el vector y buscarlo de manera eficiente?
 
+var v: array [1..7] of string = (‘literario’, ‘filosofía’, ‘arte‘, ‘biología’, ‘computación’, ‘medicina’, ‘ingeniería’); ESTO QUE SERIA? VARIABLE LOCAL, GLOBAL?
