@@ -5,3 +5,5 @@ Inciso A:
 
 Inciso B:
 - La funcion debe retornar el vector ordenado tambien? O unicamente lo ordena para saber cual es el mayor?
+
+- Cuando tengo que implementar un vector y no puedo relacionar la posicion con lo que estoy buscando. Esta bien implementar la busqueda de manera secuencial (de la pos 1 hasta que la encuentre) u ordenar el vector y buscarlo de manera eficiente?
