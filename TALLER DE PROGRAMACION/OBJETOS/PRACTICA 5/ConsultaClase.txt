@@ -1,0 +1,3 @@
+EJERCICIO2:
+
+- Cuando hago el constructor del estacionamiento, debo ponerr toda la matriz en NULL o solo hacer el new con los datos que me pide? 
