@@ -1,3 +1,7 @@
+GENERAL:
+
+- Preguntar TEMA DE GETTERS CON VECTOR (Ejemplo: Estoy con la clase super que tiene un vector y tiene 2 hijos, quiero hacer un metodo abstracto en una de las clases hijas, puedo hacer un getter del vector que tiene la clase super? (que seria abstracta))
+
 EJERCICIO2:
 
 - Cuando hago el constructor del estacionamiento, debo ponerr toda la matriz en NULL o solo hacer el new con los datos que me pide? 
