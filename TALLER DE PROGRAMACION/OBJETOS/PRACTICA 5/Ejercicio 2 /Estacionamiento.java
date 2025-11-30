@@ -1,123 +1,72 @@
-package ejercicio2practica5;
+package ejercicio2practica5n;
 
 public class Estacionamiento {
-    /// ATRIBUTOS DE LA CLASE ESTACIONAMIENTO
     private String nombre;
     private String direccion;
     private String horaApertura;
     private String horaCierre;
-    private Auto mAutos[][];
-    private int numPisos;
-    private int numPlazas;
+    private Auto[][] mAutos;
+
+    int maxNumPiso;
+    int maxNumPlaza;
     
-    public Estacionamiento (String miNombre, String miDireccion) {
-        this.nombre = miNombre;
-        this.direccion = miDireccion;
+    public Estacionamiento(String nombre, String direccion) {
+        this.nombre = nombre;
+        this.direccion = direccion;
         this.horaApertura = "8:00";
         this.horaCierre = "21:00";
-        this.numPisos = 5;
-        this.numPlazas = 10;
-        this.mAutos = new Auto[this.numPisos][this.numPlazas];
-    }
-    
-    public Estacionamiento (String miNombre, String miDireccion, String miHoraApertura, String miHoraCierre, int miNumPisos, int miNumPlazas) {
-        this.nombre = miNombre;
-        this.direccion = miDireccion;
-        this.horaApertura = miHoraApertura;
-        this.horaCierre = miHoraCierre;
-        this.numPisos = miNumPisos;
-        this.numPlazas = miNumPlazas;
-        this.mAutos = new Auto[numPisos][numPlazas];
-    }
-    
-    /// GETTERS Y SETTERS
-    public String getNombre() {
-        return nombre;
+        this.mAutos = new Auto[5][10];
+        maxNumPiso = 5;
+        maxNumPlaza = 10;
     }
 
-    public void setNombre(String nombre) {
+    public Estacionamiento(String nombre, String direccion, String horaApertura, String horaCierre, int numPisos, int numPlazas) {
         this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public String getHoraApertura() {
-        return horaApertura;
-    }
-
-    public void setHoraApertura(String horaApertura) {
         this.horaApertura = horaApertura;
-    }
-
-    public String getHoraCierre() {
-        return horaCierre;
-    }
-
-    public void setHoraCierre(String horaCierre) {
         this.horaCierre = horaCierre;
-    }
-
-    public Auto[][] getmAutos() {
-        return mAutos;
-    }
-
-    public void setmAutos(Auto[][] mAutos) {
-        this.mAutos = mAutos;
+        this.mAutos = new Auto[numPisos][numPlazas];
+        maxNumPiso = numPisos;
+        maxNumPlaza = numPlazas;
     }
     
-    /// METODOS PROPIOS DE LA CLASE ESTACIONAMIENTO
-    
-    public void agregarAuto (Auto miAuto, int numPiso, int numPlaza) {
-        this.mAutos[numPiso-1][numPlaza-1] = miAuto;
+    public void agregarAuto (Auto unAuto, int numPiso, int numPlaza) {
+        this.mAutos[numPiso][numPlaza] = unAuto;
     }
     
-    public String devolverPosAuto(String miPatente) { 
-        int i = 0; int j = 0;
-        String aux = "Auto inexistente"; 
-        boolean seEncontro = false; 
-        while (i < numPisos && !seEncontro) { 
-            j = 0;
-            while(j < numPlazas && !seEncontro) { 
-                if ((this.mAutos[i][j] != null) && this.mAutos[i][j].getPatente().contentEquals(miPatente)) { 
-                    aux = "El auto de patente " + this.mAutos[i][j].getPatente() + " esta estacionado en el piso " + (i+1) + " en la plaza " + (j+1) + "."; 
-                    seEncontro = true; 
+    public String devolverPosAuto (String unaPatente) {
+        for (int i=0; i < maxNumPiso; i++) {
+            for (int j=0; j < maxNumPlaza; j++) {
+                if ((this.mAutos[i][j] != null) && (this.mAutos[i][j].getPatente().equals(unaPatente))) {
+                    return "El auto con la patente ingresada esta en Piso: " + (i+1) + " y Plaza: " + (j+1);
                 }
-                j++; 
             }
-        i++;
-        }  
-        return aux; 
+        }
+        return "Auto Inexistente";
     }
     
-    @Override
-    public String toString () {
-        String aux = "";
-        for (int i=0; i < numPisos; i++) {
-            for (int j=0; j < numPlazas; j++) {
-                if (this.mAutos[i][j] == null) {
-                    aux += "Piso: " + (i+1) + " Plaza: " + (j+1) + " libre \n"; 
-                }
-                else
-                    aux += "Piso: " + (i+1) + " Plaza: " + (j+1) + " Dueño: " + this.mAutos[i][j].getDueno() + " Patente: " + this.mAutos[i][j].getPatente() + "\n"; 
+    public int devolverCantEnPlaza (int plaza) {
+        int aux = 0;
+        for (int i=0; i < maxNumPiso; i++) {
+            if (this.mAutos[i][plaza-1] != null) {
+                aux++;
             }
         }
         return aux;
     }
     
-    public int contAutos (int miPlaza) {
-        int cant = 0;
-        miPlaza--;
-        for (int i=0; i < numPisos; i++) {
-            if (this.mAutos[i][miPlaza] != null) {
-                cant++;
+    @Override
+    public String toString () {
+        String aux = "";
+        for (int i=0; i < maxNumPiso; i++) {
+            for (int j=0; j < maxNumPlaza; j++) {
+                if (this.mAutos[i][j] != null) {
+                    aux += "Piso " + (i+1) + " Plaza: " + (j+1) +  this.mAutos[i][j].toString() + " \n";
+                }
+                else
+                    aux += "Piso " + (i+1) + " Plaza: " + (j+1) + " libre \n";
             }
         }
-        return cant;
+        return aux;
     }
 }
