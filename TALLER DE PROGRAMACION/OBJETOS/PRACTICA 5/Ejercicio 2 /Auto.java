@@ -1,28 +1,21 @@
-package ejercicio2practica5;
+package ejercicio2practica5n;
 
 public class Auto {
-    String dueno;
-    String patente;
+    private String nombreDuenio;
+    private String patente;
 
-    public Auto(String dueno, String patente) {
-        this.dueno = dueno;
+    public Auto(String nombreDuenio, String patente) {
+        this.nombreDuenio = nombreDuenio;
         this.patente = patente;
-    }
-    
-    public String getDueno() {
-        return dueno;
-    }
-
-    public void setDueno(String dueno) {
-        this.dueno = dueno;
     }
 
     public String getPatente() {
         return patente;
     }
-
-    public void setPatente(String patente) {
-        this.patente = patente;
+    
+    @Override
+    public String toString () {
+        return " Dueño: " + this.nombreDuenio + " Patente: " + this.patente;
     }
     
 }
