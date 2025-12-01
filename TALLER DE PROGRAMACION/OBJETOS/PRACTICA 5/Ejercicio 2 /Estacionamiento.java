@@ -7,8 +7,8 @@ public class Estacionamiento {
     private String horaCierre;
     private Auto[][] mAutos;
 
-    int maxNumPiso;
-    int maxNumPlaza;
+    private int maxNumPiso;
+    private int maxNumPlaza;
     
     public Estacionamiento(String nombre, String direccion) {
         this.nombre = nombre;
@@ -18,16 +18,26 @@ public class Estacionamiento {
         this.mAutos = new Auto[5][10];
         maxNumPiso = 5;
         maxNumPlaza = 10;
+        this.inicializarMatriz(maxNumPiso, maxNumPlaza);
     }
-
+    
     public Estacionamiento(String nombre, String direccion, String horaApertura, String horaCierre, int numPisos, int numPlazas) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.horaApertura = horaApertura;
         this.horaCierre = horaCierre;
-        this.mAutos = new Auto[numPisos][numPlazas];
         maxNumPiso = numPisos;
         maxNumPlaza = numPlazas;
+        this.mAutos = new Auto[numPisos][numPlazas];
+        this.inicializarMatriz(maxNumPiso, maxNumPlaza);
+    }
+
+    private void inicializarMatriz (int maxNumPiso, int maxNumPlaza) {
+        for (int i=0; i < maxNumPiso; i++) {
+            for (int j=0; i < maxNumPlaza; i++) {
+                this.mAutos[i][j] = null;
+            }   
+        }
     }
     
     public void agregarAuto (Auto unAuto, int numPiso, int numPlaza) {
