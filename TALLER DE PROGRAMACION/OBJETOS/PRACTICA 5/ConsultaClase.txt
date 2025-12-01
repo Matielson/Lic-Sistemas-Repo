@@ -9,3 +9,15 @@ EJERCICIO2:
 EJERCICIO3: 
 
 - PREGUNTAR SI EN LA CLASE GIRA SE DEBE USAR TANTO UNA DIMENSION LOGICA, COMO UNA "DIML" TAMBIEN PARA LA CANTIDAD DE FECHAS QUE TIENE EL VECTOR DE FECHAS
+
+
+
+
+
+
+
+NUEVAS
+
+EJERCICIO 4:
+
+- En el metodo bienFormado de el coro semicircular, hay que preguntar por estricto menor o menor o igual? PREGUNTRA POR LA CONSIGNA 
