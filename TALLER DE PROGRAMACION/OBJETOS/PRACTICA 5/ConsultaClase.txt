@@ -5,3 +5,7 @@ GENERAL:
 EJERCICIO2:
 
 - Cuando hago el constructor del estacionamiento, debo ponerr toda la matriz en NULL o solo hacer el new con los datos que me pide? 
+
+EJERCICIO3: 
+
+- PREGUNTAR SI EN LA CLASE GIRA SE DEBE USAR TANTO UNA DIMENSION LOGICA, COMO UNA "DIML" TAMBIEN PARA LA CANTIDAD DE FECHAS QUE TIENE EL VECTOR DE FECHAS
