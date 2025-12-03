@@ -86,5 +86,24 @@ public class Empresa {
         return aux;
     }
     
+    /* 
+    VERSION VITO
+    
+    public String toString() {
+        String aux = "Empresa: " + this.nombre + "- " + this.direccion + ";" + this.costoPorMes + "\n";
+        for (int i = 0; i < this.cantSectoresMax ; i++) {
+            aux += "Sector " + (i+1) + ": \n";
+            for (int j = 0 ; j < this.cantBaulerasMax ; j++) {
+                int cant = i * this.cantBaulerasMax + j;
+                if (cant < this.cantClientes) {
+                    aux += "Baulera " + (j+1) + ":" + this.mClientes[i][j].getDNI() + " nombre: " + this.mClientes[i][j].getNombre() + " telefono: " + this.mClientes[i][j].getTelefono() + " localidad: " + this.mClientes[i][j].getLocalidad() + " asegurado : " + this.mClientes[i][j].isSeguroAd() + " \n";
+                }
+            }
+        }
+        return aux;
+    }
+    */
+    
+    
     
 }
