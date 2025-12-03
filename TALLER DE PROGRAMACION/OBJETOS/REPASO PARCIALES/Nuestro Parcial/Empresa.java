@@ -73,18 +73,26 @@ public class Empresa {
     @Override
     public String toString () {
         String aux = "Empresa: " + this.nombre + " - " + "Direccion: " + this.direccion + " Costo por Mes: " + this.costoMes + "\n";
-        int dimLSectores = this.cantClientes / cantMaxColumnas;
-        int dimLBauleras = this.cantClientes % cantMaxColumnas;
-        System.out.println(dimLSectores);
-        System.out.println(dimLBauleras);
-        for (int i=0;i < dimLSectores; i++) {
+        int cantSectoresLlenos = this.cantClientes / cantMaxColumnas; // ESTO DA 4
+        int cantBaulerasFaltantes = this.cantClientes / cantMaxFilas; // ESTO DA 2
+
+        // RECORRO LA MATRIZ QUE SE QUE ESTA COMPLETA
+        for (int i=0;i < cantSectoresLlenos; i++) {
             aux += "Sector " + (i+1) + ": \n"; 
-            for (int j=0; j < dimLBauleras; j++) {
+            for (int j=0; j < cantMaxColumnas; j++) {
                 aux += "Baulera " + (j+1) + ": " + "DNI: " +  mClientes[i][j].getDni() + " Nombre: " + mClientes[i][j].getNombre() + " Telofono: " + mClientes[i][j].getTelefono() + " Localidad: " + mClientes[i][j].getLocalidad() + " Asegurado? " + mClientes[i][j].isContrataSeguro() + "\n";
             }
         } 
+
+        // RECORRO LA PARTE QUE FALTA
+        for (int i=0; i < cantBaulerasFaltantes; i++) {
+            aux += "Baulera " + (j+1) + ": " + "DNI: " +  mClientes[i][j].getDni() + " Nombre: " + mClientes[i][j].getNombre() + " Telofono: " + mClientes[i][j].getTelefono() + " Localidad: " + mClientes[i][j].getLocalidad() + " Asegurado? " + mClientes[i][j].isContrataSeguro() + "\n";
+        }
+        
         return aux;
     }
+
+    
     
     /* 
     VERSION VITO
