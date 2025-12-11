@@ -33,4 +33,4 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 |--------|-----------------------------------------|--------|-------------------------------|
 | SI107  | Taller de Programación                  | ❌      | Redictado. LA CONCHA PUTA DE TU MADRE                             |
 | SI105  | Arquitectura de Computadoras            | ✅     | Falta final                   |
-| SI102  | Matemática 2                            | ✅     | Falta flotante para promo     |
+| SI102  | Matemática 2                            | ✅     | 6 (promo)     |
