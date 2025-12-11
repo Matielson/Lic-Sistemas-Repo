@@ -8,7 +8,7 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 | **Ingreso (6 semanas)** | CNE    | Expresión de Problemas y Algoritmos          | ✔️     | 7                   |
 |                       | CNC    | Conceptos de Organización de Computadoras    | ✔️     | 6                   |
 |                       | CNM    | Matemática 0                                 | ✔️     | 7                   |
-| ---        |     ---   |                ---                              |       ---  |          ---          |
+| ㅤ        |     ㅤ   |                ㅤ                              |       ㅤ  |          ㅤ          |
 | **PRIMER AÑO**        |        |                                              |         |                    |
 | **1° Semestre**       | SI106  | Conceptos de Algoritmos, Datos y Programas   | ✔️     | Falta final         |
 |                       | SI104  | Organización de Computadoras                 | ✔️     | 4 (final)           |
@@ -16,5 +16,5 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 | **2° Semestre**       | SI107  | Taller de Programación                       | ❌     | Redictado           |
 |                       | SI105  | Arquitectura de Computadoras                 | ✔️     | Falta final         |
 |                       | SI102  | Matemática 2                                 | ✔️     | 6 (promo)           |
-|         |        |                                              |         |                    |
+|   ㅤ      |      ㅤ  |                       ㅤ                       |      ㅤ   |            ㅤ        |
 | **SEGUNDO AÑO**        |        |                                              |         |                    |
