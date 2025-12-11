@@ -16,5 +16,5 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 | **2° Semestre**       | SI107  | Taller de Programación                       | ❌     | Redictado           |
 |                       | SI105  | Arquitectura de Computadoras                 | ✔️     | Falta final         |
 |                       | SI102  | Matemática 2                                 | ✔️     | 6 (promo)           |
-| ---        |     ---   |                ---                              |       ---  |          ---          |
+|         |        |                                              |         |                    |
 | **SEGUNDO AÑO**        |        |                                              |         |                    |
