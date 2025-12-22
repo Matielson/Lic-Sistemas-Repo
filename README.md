@@ -13,7 +13,7 @@ Repositorio para almacenar proyectos, apuntes y prácticas de la Licenciatura en
 | **1° Semestre**       | SI106  | Conceptos de Algoritmos, Datos y Programas   | ✔️     | Falta final         |
 |                       | SI104  | Organización de Computadoras                 | ✔️     | 4 (final)           |
 |                       | SI101  | Matemática 1                                 | ✔️     | 9 (promo)           |
-| **2° Semestre**       | SI107  | Taller de Programación                       | ❌     | Redictado           |
+| **2° Semestre**       | SI107  | Taller de Programación                       | ❌     | Redictado  LA CONCHA PUTA DE TU MADRE         |
 |                       | SI105  | Arquitectura de Computadoras                 | ✔️     | Falta final         |
 |                       | SI102  | Matemática 2                                 | ✔️     | 6 (promo)           |
 | **SEGUNDO AÑO**        |        |                                              |         |                    |
